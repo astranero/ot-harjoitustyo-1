@@ -1,6 +1,6 @@
 <h1>OT-HARJOITUSTYÖ</h1>
 <p>Tee tiedostoon esim. jokin otsikko, tavallista tekstiä, joka sisältää lihavoituja ja 
-*kursivoituja osuuksia*</p>
+<italic>kursivoituja osuuksia</italic>
 
 <p>~~viikko 1~~</p>
 
