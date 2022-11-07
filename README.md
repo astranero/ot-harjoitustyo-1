@@ -16,6 +16,8 @@
 [komentorivi.txt](https://github.com/sutigit/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 </br>
 <p>Paikallisesti tehty muutos</p>
-
+</br>
+</br>
+<h2>Laitetaan asiat epäsynkkaan!</h2>
 
 
