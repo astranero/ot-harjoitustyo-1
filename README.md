@@ -6,8 +6,10 @@
 ~~viikko 1~~
 
 <strong>**Tehtävä linkit**</strong>
-[gitlog.txt] (https://github.com/sutigit/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
-[komentorivi.txt] (https://github.com/sutigit/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+</br>
+[gitlog.txt](https://github.com/sutigit/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+</br>
+[komentorivi.txt](https://github.com/sutigit/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
 
 
