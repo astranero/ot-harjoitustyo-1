@@ -4,7 +4,7 @@
 
 <ul>
   <li>
-    <strike>viikko 1</strike>  
+      <h3><strike>viikko 1</strike></h3>  
    </li>
 </ul>
 
