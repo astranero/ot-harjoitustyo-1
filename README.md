@@ -14,7 +14,8 @@
 [gitlog.txt](https://github.com/sutigit/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 </br>
 [komentorivi.txt](https://github.com/sutigit/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
-
+</br>
+<p>Paikallisesti tehty muutos</p>
 
 
 
