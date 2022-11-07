@@ -7,8 +7,8 @@
 
 <strong>**Tehtävä linkit**</strong>
 <ul>
-  <li>gitlog.txt https://github.com/sutigit/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt</li>
-  <li>komentorivi.txt https://github.com/sutigit/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt</li>
+  <li>[gitlog.txt](https://github.com/sutigit/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)</li>
+  <li>[komentorivi.txt](https://github.com/sutigit/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)</li>
 </ul>
 
 
