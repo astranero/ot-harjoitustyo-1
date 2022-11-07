@@ -2,8 +2,12 @@
 <p>Tee tiedostoon esim. jokin otsikko, tavallista tekstiä, joka sisältää lihavoituja ja 
   <strong><i>kursivoituja osuuksia</i></strong></p>
 
+<ul>
+  <li>
+    <strike>viikko 1</strike>  
+   </li>
+</ul>
 
-~~viikko 1~~
 
 <strong>**Tehtävä linkit**</strong>
 </br>
