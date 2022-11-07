@@ -2,11 +2,14 @@
 <p>Tee tiedostoon esim. jokin otsikko, tavallista tekstiä, joka sisältää lihavoituja ja 
 *kursivoituja osuuksia*</p>
 
-<h3>~~viikko 1~~</h3>
+<p>~~viikko 1~~</p>
 
->**Tehtävä linkit**
->
->gitlog.txt https://github.com/sutigit/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt
->
->komentorivi.txt https://github.com/sutigit/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt
+<strong>**Tehtävä linkit**</strong>
+<ul>
+  <li>gitlog.txt https://github.com/sutigit/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt</li>
+  <li>komentorivi.txt https://github.com/sutigit/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt</li>
+</ul>
+
+
+
 
