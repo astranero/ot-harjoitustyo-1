@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "viikko2"
+name = "maksukortti"
 version = "0.1.0"
 description = ""
 authors = ["sutigit <panyanilben@gmail.com>"]
@@ -7,7 +7,6 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-cowsay = "^5.0"
 
 
 [tool.poetry.group.dev.dependencies]

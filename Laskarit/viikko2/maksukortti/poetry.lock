@@ -21,14 +21,6 @@ optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
 
 [[package]]
-name = "cowsay"
-version = "5.0"
-description = "The famous cowsay for GNU/Linux is now available for python"
-category = "main"
-optional = false
-python-versions = "*"
-
-[[package]]
 name = "exceptiongroup"
 version = "1.0.1"
 description = "Backport of PEP 654 (exception groups)"
@@ -112,7 +104,7 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "53a6a249811f496a6fa8380c21edc7f22a7a78d09d96874e90abd68c1bd3a0e8"
+content-hash = "fe7d699e3d0a0850a8dbe0b6f8879e913e4007fbcd4703e182984e456469be36"
 
 [metadata.files]
 attrs = [
@@ -122,9 +114,6 @@ attrs = [
 colorama = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
-]
-cowsay = [
-    {file = "cowsay-5.0.tar.gz", hash = "sha256:c00e02444f5bc7332826686bd44d963caabbaba9a804a63153822edce62bbbf3"},
 ]
 exceptiongroup = [
     {file = "exceptiongroup-1.0.1-py3-none-any.whl", hash = "sha256:4d6c0aa6dd825810941c792f53d7b8d71da26f5e5f84f20f9508e8f2d33b140a"},

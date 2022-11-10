@@ -1,18 +1,16 @@
 [tool.poetry]
-name = "viikko2"
+name = "unicafe"
 version = "0.1.0"
 description = ""
-authors = ["sutigit <panyanilben@gmail.com>"]
-readme = "README.md"
+authors = ["Kalle Ilves <kalle.ilves@helsinki.fi>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-cowsay = "^5.0"
-
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.0"
+coverage = "^6.5.0"
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
