@@ -1,23 +1,14 @@
 <h1>OT-HARJOITUSTYÖ</h1>
-<p>Tee tiedostoon esim. jokin otsikko, tavallista tekstiä, joka sisältää lihavoituja ja 
-  <strong><i>kursivoituja osuuksia</i></strong></p>
 
+<p>(Nimi: Bussitt) Sovelluksen avulla käyttäjän on mahdollista nähdä omasta tietokoneen terminaalista toivomansa pysäkin seuraavat 10 lähtevää bussia tästä hetkestä alkaen. Käyttäjä voi tallentaa pysäkin seuraavaa kertaa varten, kun käyttäjä avaa terminaalisovelluksen. Näin hän voi nopeasti nähdä hänen suosikki pysäkkien lähtevät bussit. Sovelluksessa voi myös hallinnoida tallentamiaan bussi-aikataulu näkymiä lisäämällä, nimeämällä tai poistamalla näitä. Hyöty näkyy esim. siinä, jos työstentelee paljon terminaalissa, niin yhdellä komennolla voi nopeasti nähdä omat lähtevät bussit.</p>
+
+<h2>Huomio Python-versiosta</h2>
+<p>Sovelluksen toiminta on testattu Python-versiolla 3.8. Etenkin vanhempien Python-versioiden kanssa saattaa ilmentyä ongelmia.</p>
+
+<h2>Dokumentaatio</h2>
 <ul>
-  <li>
-      <h3><strike>Viikko 1</strike></h3>  
-   </li>
+  <li>[Vaatimusmäärittely](https://github.com/sutigit/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)</li>
+  <li>[tuntikirjanpitko](https://github.com/sutigit/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)</li>
 </ul>
-
-
-<strong>**Tehtävä linkit**</strong>
-</br>
-[gitlog.txt](https://github.com/sutigit/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
-</br>
-[komentorivi.txt](https://github.com/sutigit/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
-</br>
-<p>Paikallisesti tehty muutos</p>
-</br>
-</br>
-<h2>Laitetaan asiat epäsynkkaan!</h2>
 
 
