@@ -1,5 +1,3 @@
-# tuntikirjanpito
-
 <h1>Tuntikirjanpito</h1>
 
 
