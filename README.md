@@ -6,9 +6,8 @@
 <p>Sovelluksen toiminta on testattu Python-versiolla 3.8. Etenkin vanhempien Python-versioiden kanssa saattaa ilmentyä ongelmia.</p>
 
 <h2>Dokumentaatio</h2>
-<ul>
-  <li>[Vaatimusmäärittely](https://github.com/sutigit/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)</li>
-  <li>[tuntikirjanpitko](https://github.com/sutigit/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)</li>
-</ul>
+[Vaatimusmäärittely](https://github.com/sutigit/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+[tuntikirjanpito](https://github.com/sutigit/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+
 
 
