@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "bussitt-app"
+version = "0.1.0"
+description = "OhTe-2022 harjoitustyö @Helsingin yliopisto"
+authors = ["sutigit <panyanilben@gmail.com>"]
+readme = "README.md"
+packages = [{include = "bussitt_app"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
