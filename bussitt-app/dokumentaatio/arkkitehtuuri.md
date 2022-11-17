@@ -19,6 +19,7 @@ flowchart RL
 
 </br>
 </br>
+
 ### Huomioitavaa
 myutils.py sisältää yleisiä työkalu funktioita. Jokainen seuraavista tiedostoista sisältää tämän tiedoston.
 
@@ -29,3 +30,5 @@ flowchart LR
     myutils([myutils.py]) --> display([display.py])
     myutils([myutils.py]) --> query([query.py])
 ```
+
+## Käyttöliittymä
