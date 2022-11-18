@@ -1,60 +1,111 @@
 # Arkkirehtuurikuvaus
 ## Rakenne
-Seuraava kaavio havainnollistaa koodin rakennetta ja sen eri tiedostojen yhteyksiä toisiinsa. Nuolen kulku suunta osoittaa missä import lause moduulille tapahtuu.
-
-Koodin tiedosto rakenne on seuraavanlainen.
+Seuraava kaavio havainnollistaa koodin rakennetta ja sen eri luokkien/moduulien yhteyksiä.
 
 ```mermaid
 flowchart RL
-    ui([ui.py]) --> main([main.py])
-    display([display.py]) --> main([main.py])
-    api{api} --> ui([ui.py])
+    Ui --- Main
+    Display --- Main
+    api{api} --- Main
 ```
-</br>
-
-```mermaid
-flowchart RL
-    query([query.py]) --> api{api}
-```
-
 </br>
 </br>
 
 ### Huomioitavaa
-myutils.py sisältää yleisiä työkalu funktioita. Jokainen seuraavista tiedostoista sisältää tämän tiedoston.
+myutils.py sisältää yleisiä työkalu funktioita ja on importattu kaikkiin luokkiin ja moduuleihin
 
 ```mermaid
 flowchart LR
-    myutils([myutils.py]) --> main([main.py])
-    myutils([myutils.py]) --> ui([ui.py])
-    myutils([myutils.py]) --> display([display.py])
-    myutils([myutils.py]) --> query([query.py])
+    myutils([myutils.py]) --- Main
+    myutils([myutils.py]) --- Ui
+    myutils([myutils.py]) --- Display
+    myutils([myutils.py]) --- api{api}
 ```
 
 ## Käyttöliittymä
 Käyttöliittymän päätoimintaperiaate on, että käyttäjä voi tarkastella bussi-aikatauluja, joita hän on itse sovelluksen avulla etsinyt ja tallentanut.
 Käyttäjälle tarjotaan myös mahdollisuutta muokata tekemisiään jälkikäteen.
 
-Käyttöliittymä sisältää viisi eri komponenttia.
+Käyttöliittymä sisältää 3 päänäkymää.
 - Etusivu näkymä
 - Bussi-aikataulu näkymä
-- Valikointi näkymä
-- Syöte näkymä
 - Hallinta näkymä
 
 ### Etusivu näkymä
-Tämä näkymä on sovelluksen ensimmäinen näkymä. Se näyttää tietoja siitä saako sovellus onnistuneesti yhteyden HSL-rajapintaan, paikallisen ajan, valikon siitä mitä käyttäjä haluaa seuraavaksi tehdä ja tallennetut bussi-aikataulut.
+Tämä näkymä toimii sovelluksen kotivalikkona. Näkymä tarjoaa tietoa siitä, saako sovellus onnistuneesti yhteyden HSL-rajapintaan, paikallisen ajan, valikon siitä mitä käyttäjä haluaa seuraavaksi tehdä ja tallennetut bussi-aikataulut.
 
 ### Bussi-aikataulu näkymä
-Tämä komponentti on vastuussa ainoastaan bussi-aikataulun näyttämisestä.
-
-### Valikointi näkymä
-Tämä komponentti antaa käyttäjälle eri toiminta vaihtoehtoja. Esimerkiksi mitä hän haluaisi seuraavaksi sovelluksessa tehdä.
-
-### Syöte näkymä
-Tämä komponentti pyytää käyttäjältä tekstisyötettä. Esimerkiksi bussipysäkin nimeä.
+Tämä komponentti on vastuussa ainoastaan bussi-aikataulujen näyttämisestä.
 
 ### Hallinta näkymä
-Tämä näkymä tarjoaa käyttäjälle mahdollisuuden hallinnoida tallennettuja bussi-aikatauluja, muokkaamalla ja poistamalla näitä.
+Tämä näkymä tarjoaa käyttäjälle mahdollisuuden hallinnoida tallennettuja bussi-aikatauluja, muokkaamalla ja poistamalla näitä jälkikäteen.
 
-Näkymät voivat olla näkyvissä yksikerrallaan tai samanaikaisesti.
+
+</br>
+Näkymät voivat olla näkyvissä yksi kerrallaan tai samanaikaisesti. Käyttöliittymä ohjaa myös käyttäjää eri toiminnoissa eteenpäin vaihe kerrallaan,josta koostuu sovelluksen muut näkymät.
+
+## Sovelluslogiikka
+--
+## Tietojen pysyväistallennus
+--
+## Päätoiminnallisuudet
+### Alkuvalikko
+Kun käyttäjä käynnistää sovelluksen, etenee sovelluksen kontrolli seuraavasti:
+
+```mermaid
+sequenceDiagram
+    participant Main
+    participant Ui
+    actor Käyttäjä
+    
+    Note over Main: luo ui-olio
+    Note over Main: luo display-olio
+    Main->>Main: start()
+    Main->>Ui: ask_action()
+    Ui->>Käyttäjä: Pyytää käyttäjältä toimintoa
+```
+</br>
+</br>
+
+### Bussi-aikataulun löytäminen
+Kun käyttäjä etsii bussi-aikataulua, etenee sovelluksen kontrolli seuraavasti:
+
+```mermaid
+sequenceDiagram
+    actor Käyttäjä
+    participant Ui
+    participant Main
+    participant api
+    participant Display
+    
+    Käyttäjä->>Ui: Valitsee "Search timetable"-toiminnon
+    Ui-->>Main: action: "search_timetable"
+    Main->>Main: get_timetable()
+    Main->>Ui: ask_search_word()
+    activate Ui
+    Ui-)Käyttäjä: Pyytää käyttäjältä bussipysäkille hakusanaa
+    activate Käyttäjä
+    Käyttäjä-->>Ui: Antaa bussipysäkille hakusanan
+    deactivate Käyttäjä
+    Ui-->>Main: hakusana
+    deactivate Ui
+    Main-)api: fetch_search_options(hakusana)
+    activate api
+    api-->>Main: JSON data: pysäkki vaihtoehtoja
+    deactivate api
+    Main->>Ui: choose_search_option(pysäkki vaihtoehdot)
+    activate Ui
+    Ui-)Käyttäjä: Pyytää käyttäjää valitsemaan tarjotuista bussi-pysäkki vaihtoehdoista
+    activate Käyttäjä
+    Käyttäjä-->>Ui: Antaa täsmällisen bussipysäkin
+    deactivate Käyttäjä
+    Ui-->>Main: bussipysäkki
+    deactivate Ui
+    Main->>Main: display_timetable()
+    Main-)api: fetch_timetable(bussipysäkki)
+    activate api
+    api-->>Main: JSON data: aikataulu data
+    deactivate api
+    Main->>Display: render_timetable(aikataulu data)
+
+```
