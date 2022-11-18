@@ -9,7 +9,6 @@ flowchart RL
     api{api} --- Main
 ```
 </br>
-</br>
 
 ### Huomioitavaa
 myutils.py sisältää yleisiä työkalu funktioita ja on importattu kaikkiin luokkiin ja moduuleihin
@@ -79,7 +78,7 @@ sequenceDiagram
     participant Display
     
     Käyttäjä->>Ui: Valitsee "Search timetable"-toiminnon
-    Ui-->>Main: action: "search_timetable"
+    Ui-->>Main: toiminto
     Main->>Main: get_timetable()
     Main->>Ui: ask_search_word()
     activate Ui
