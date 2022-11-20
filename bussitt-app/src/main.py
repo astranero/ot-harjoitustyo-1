@@ -1,5 +1,3 @@
-import pytest
-
 #my modules
 from myutils import *
 from ui import Ui
@@ -34,21 +32,13 @@ class Main:
                 
     def ask_action(self) -> None:
         self.action = self.ui.ask_action()
-        if self.action == "quit": 
-            if __name__ == "__main__":
-                exit(0)
-            else:
-                pytest.exit(0)
+        if self.action == "quit": exit()
 
     def ask_next_action(self) -> None:
         self.action = self.ui.ask_next_action()
         if self.action == "save_timetable":
             transient_print("Feature not yet available")
-        elif self.action == "quit": 
-            if __name__ == "__main__":
-                exit(0)
-            else:
-                pytest.exit(0)
+        elif self.action == "quit": exit()
 
     def ask_search_word(self) -> None:
         while True:

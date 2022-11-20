@@ -37,6 +37,6 @@ poetry run invoke test
 Generoi sovelluksen testikattavuus komennolla
 
 ```
-poetry run invoke coverage-report
+poetry run invoke report
 ```
 Raportti generoituu htmlcov-hakemistoon

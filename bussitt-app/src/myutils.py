@@ -12,7 +12,8 @@ def error(message=None):
 def clear_cl():
 # check which clear command to use depending on os
     clear_cmd = "cls" if platform == "win32" else "clear"
-    os.system(clear_cmd)
+    if __name__ =="__main__":
+        os.system(clear_cmd)
 
 def boilerplate():
     print('+++++++++++ This is Bussitt +++++++++++')

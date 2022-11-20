@@ -14,7 +14,10 @@ def test(ctx):
 def coverage(ctx):
     ctx.run("coverage run --branch -m pytest src", pty=True)
 
-
 @task(coverage)
-def coverage_report(ctx):
+def report(ctx):
     ctx.run("coverage html", pty=True)
+
+@task
+def open_report(ctx):
+    ctx.run("google-chrome htmlcov/index.html", pty=True)
