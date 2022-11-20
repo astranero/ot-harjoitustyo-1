@@ -1,4 +1,4 @@
-import time
+import pytest
 
 #my modules
 from myutils import *
@@ -12,13 +12,11 @@ class Main:
         self.display = Display()
 
         # App properties
-        self.action: str = ""
-        self.bus_stop: str = ""
+        self.action = None
+        self.bus_stop = None
 
         # Search properties
         self.search_options = None
-
-        self.start()
 
     def start(self) -> None:
         # Main loop
@@ -36,13 +34,21 @@ class Main:
                 
     def ask_action(self) -> None:
         self.action = self.ui.ask_action()
-        if self.action == "quit": exit()
+        if self.action == "quit": 
+            if __name__ == "__main__":
+                exit(0)
+            else:
+                pytest.exit(0)
 
     def ask_next_action(self) -> None:
         self.action = self.ui.ask_next_action()
         if self.action == "save_timetable":
             transient_print("Feature not yet available")
-        elif self.action == "quit": exit()
+        elif self.action == "quit": 
+            if __name__ == "__main__":
+                exit(0)
+            else:
+                pytest.exit(0)
 
     def ask_search_word(self) -> None:
         while True:
@@ -74,7 +80,8 @@ class Main:
         # Display timetable
         self.display_timetable()
     
+if __name__ == "__main__":
+    Main().start()
 
-Main()
 
 
