@@ -12,4 +12,31 @@ Sovelluksen toiminta on testattu Python-versiolla 3.8. Etenkin vanhempien Python
 - [Vaatimusmäärittely](https://github.com/sutigit/ot-harjoitustyo/blob/master/bussitt-app/dokumentaatio/vaatimusmaarittely.md)
 - [Tuntikirjanpito](https://github.com/sutigit/ot-harjoitustyo/blob/master/bussitt-app/dokumentaatio/tuntikirjanpito.md)
 - [Arkkitehtuuri](https://github.com/sutigit/ot-harjoitustyo/blob/master/bussitt-app/dokumentaatio/arkkitehtuuri.md)
-- [Changelog]()
+- [Changelog](https://github.com/sutigit/ot-harjoitustyo/blob/master/bussitt-app/dokumentaatio/changelog.md)
+
+## Komentorivitoiminnot
+
+### Sovelluksen suorittaminen
+
+Sovelluksen pystyy suorittamaan komennolla
+
+```
+poetry run invoke start
+```
+
+### Sovelluksen testaus
+
+Suorita testit komennolla
+
+```
+poetry run invoke test
+```
+
+### Sovelluksen testikattavuus
+
+Generoi sovelluksen testikattavuus komennolla
+
+```
+poetry run invoke coverage-report
+```
+Raportti generoituu htmlcov-hakemistoon
