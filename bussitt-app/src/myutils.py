@@ -14,6 +14,8 @@ def clear_cl():
 # check which clear command to use depending on os
     clear_cmd = "cls" if platform == "win32" else "clear"
     os.system(clear_cmd)
+    pass
+    
 
 def boilerplate():
     print('+++++++++++ This is Bussitt +++++++++++')
@@ -49,7 +51,7 @@ def save_timetable(bus_stop_name=None, bus_stop_gtfsId=None, custom_name=None):
         "custom_name": custom_name
     }
 
-    json_obj = json.dumps(schema)
-
-    with open("/recordings/record.json", "w") as outfile:
-        outfile.write(json_obj)
+    print("päästään funktioon")
+    with open("/home/sutipong/Documents/School/OhTe-s2022/OT-harjoitustyö/bussitt-app/src/recordings/records.json", "w", encoding="UTF-8") as outfile:
+        print("outfile", outfile)
+        json.dump(schema, outfile, indent=4)

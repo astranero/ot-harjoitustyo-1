@@ -1,3 +1,4 @@
+import pprint
 
 # my modules
 from myutils import *
@@ -27,6 +28,7 @@ class Main:
 
             # Ask user for action
             self.ask_action()
+            print(self.action)
 
             if self.action == "search_timetables":
                 self.get_timetables()
@@ -45,10 +47,9 @@ class Main:
     def ask_next_action(self) -> None:
         self.action = self.ui.ask_next_action()
         if self.action == "save_timetable":
-            save_timetable()
+            self.save_timetable()
         elif self.action == "quit": 
             if __name__ == "__main__": exit()
-
 
 
     def repeat_ask_search_word(self) -> None:
@@ -90,7 +91,18 @@ class Main:
         # Display timetable
         self.display_timetable()
     
+    def save_timetable(self):
+        timetable_name = None
+        timetable_gtfsId = None
+        timetable_custom_name = None
 
+        answers = self.ui.get_answers()
+        timetable_custom_name = self.ui.ask_timetable_custom_name()
+
+        timetable_name = answers["bus_stop"]["name"]
+        timetable_gtfsId = answers["bus_stop"]["gtfsId"]
+
+        save_timetable(timetable_name, timetable_gtfsId, timetable_custom_name)
 
 
 if __name__ == "__main__":

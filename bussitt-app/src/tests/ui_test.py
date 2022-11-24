@@ -10,7 +10,16 @@ class TestUi(unittest.TestCase):
 
 
     def test_init(self):
-        self.assertEqual(self.ui.answers, {})
+        schema = {
+            "action": "",
+            "next_action": "",
+            "search_word": "",
+            "bus_stop": {
+                "name": "",
+                "gtfsId": ""
+            }
+        }
+        self.assertEqual(self.ui.answers, schema)
 
 
     @patch("ui.inquirer")

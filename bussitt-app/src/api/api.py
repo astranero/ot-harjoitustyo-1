@@ -10,7 +10,7 @@ url = "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql"
 def fetch_timetable(bus_stop) -> dict:
     if not bus_stop: error()
 
-    name, gtfsId = bus_stop
+    gtfsId = bus_stop["gtfsId"]
     query = f"""
         query {{
             stop(id: "{gtfsId}") {{

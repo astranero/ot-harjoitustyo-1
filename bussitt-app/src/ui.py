@@ -6,7 +6,17 @@ from myutils import *
 
 class Ui:
     def __init__(self) -> None:
-        self.answers: dict = {}
+        # Schema
+        self.answers = {
+            "action": "",
+            "next_action": "",
+            "search_word": "",
+            "bus_stop": {
+                "name": "",
+                "gtfsId": ""
+            },
+        }
+
 
     def ask_action(self) -> dict:
         boilerplate()
@@ -24,7 +34,7 @@ class Ui:
                 )
             ]
 
-        self.answers = inquirer.prompt(question)
+        self.answers[inquiry_name] = inquirer.prompt(question)[inquiry_name]
         clear_cl()
 
         return self.answers[inquiry_name]
@@ -43,7 +53,7 @@ class Ui:
                 ]
         )]
 
-        self.answers = inquirer.prompt(question)
+        self.answers[inquiry_name] = inquirer.prompt(question)[inquiry_name]
         clear_cl()
 
         return self.answers[inquiry_name]
@@ -57,7 +67,7 @@ class Ui:
             message="Search timetable by stop name"
         )]
 
-        self.answers = inquirer.prompt(question)
+        self.answers[inquiry_name] = inquirer.prompt(question)[inquiry_name]
         clear_cl()
 
         return self.answers[inquiry_name]
@@ -72,7 +82,7 @@ class Ui:
         for item in search_options["data"]["stops"]:
             tuple = (
                 f"{item['name']} {item['code']}",
-                (item['name'], item["gtfsId"])
+                {"name": item['name'], "gtfsId": item["gtfsId"]}
             )
             choices.append(tuple)
         
@@ -82,13 +92,29 @@ class Ui:
             choices=choices
         )]
 
-        self.answers = inquirer.prompt(question)
+        self.answers[inquiry_name] = inquirer.prompt(question)[inquiry_name]
         clear_cl()
 
         return self.answers[inquiry_name]
 
 
+    def ask_timetable_custom_name(self):
+        boilerplate()
 
+        inquiry_name = "timetable_custom_name"
+        question = [inquirer.Text(
+            inquiry_name,
+            message=""
+        )]
+
+        answer = inquirer.prompt(question)
+        clear_cl()
+
+        return answer[inquiry_name]
+
+
+    def get_answers(self):
+        return self.answers
 
 
 
