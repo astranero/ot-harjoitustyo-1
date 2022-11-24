@@ -104,13 +104,13 @@ class Ui:
         inquiry_name = "timetable_custom_name"
         question = [inquirer.Text(
             inquiry_name,
-            message=""
+            message="Give your timetable a name (or skip)"
         )]
 
-        answer = inquirer.prompt(question)
+        self.answers[inquiry_name] = inquirer.prompt(question)[inquiry_name]
         clear_cl()
 
-        return answer[inquiry_name]
+        return self.answers[inquiry_name]
 
 
     def get_answers(self):

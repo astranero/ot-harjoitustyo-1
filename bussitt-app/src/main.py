@@ -1,19 +1,26 @@
-import pprint
 
 # my modules
+from config import args_handler
 from myutils import *
 from ui import Ui
 from display import Display
 from api import api
+from recordings import record_api
 
 class Main:
     def __init__(self) -> None:
+        # check all init command-line arguments
+        args_handler.check_arguments()
+
+        # Class instantiations
         self.ui = Ui()
         self.display = Display()
 
         # App properties
         self.action = None
         self.bus_stop = None
+        self.user_answers = None
+        self.timetable_custom_name = None
 
         # Search properties
         self.search_word = None
@@ -21,14 +28,12 @@ class Main:
 
 
     def start(self) -> None:
-        # self.display.render_all_timetables()
 
         # Main loop
         while True:
 
             # Ask user for action
             self.ask_action()
-            print(self.action)
 
             if self.action == "search_timetables":
                 self.get_timetables()
@@ -41,11 +46,13 @@ class Main:
                 
     def ask_action(self) -> None:
         self.action = self.ui.ask_action()
+        
         if self.action == "quit": 
             if __name__ == "__main__": exit()
             
     def ask_next_action(self) -> None:
         self.action = self.ui.ask_next_action()
+
         if self.action == "save_timetable":
             self.save_timetable()
         elif self.action == "quit": 
@@ -72,6 +79,9 @@ class Main:
     def ask_search_word(self):
         self.search_word = self.ui.ask_search_word()
 
+    def ask_timetable_custom_name(self):
+        self.timetable_custom_name = self.ui.ask_timetable_custom_name() 
+
     def fetch_search_options(self):
         self.search_options = api.fetch_search_options(self.search_word)
 
@@ -90,19 +100,21 @@ class Main:
 
         # Display timetable
         self.display_timetable()
+
+    def get_user_answers(self):
+        self.user_answers = self.ui.get_answers()
     
     def save_timetable(self):
-        timetable_name = None
-        timetable_gtfsId = None
-        timetable_custom_name = None
+        self.get_user_answers()
+        self.ask_timetable_custom_name()
+        
+        data = {
+            "timetable_name": self.user_answers["bus_stop"]["name"],
+            "timetable_gtfsId": self.user_answers["bus_stop"]["gtfsId"],
+            "timetable_custom_name": self.timetable_custom_name,
+        }
 
-        answers = self.ui.get_answers()
-        timetable_custom_name = self.ui.ask_timetable_custom_name()
-
-        timetable_name = answers["bus_stop"]["name"]
-        timetable_gtfsId = answers["bus_stop"]["gtfsId"]
-
-        save_timetable(timetable_name, timetable_gtfsId, timetable_custom_name)
+        record_api.save_timetable(data)
 
 
 if __name__ == "__main__":
