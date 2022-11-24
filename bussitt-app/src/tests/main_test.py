@@ -7,6 +7,8 @@ class TestMain(unittest.TestCase):
     def setUp(self) -> None:
         self.main = Main()
 
+
+    # def ask_action
     @patch("main.Ui.ask_action")
     def test_ask_action(self, mock):
         mock.return_value = "search_timetables"
@@ -19,6 +21,20 @@ class TestMain(unittest.TestCase):
         self.main.ask_action()
         self.assertEqual(self.main.action, "quit")
 
+
+    # def get_user_answers
+    @patch("main.Ui.get_answers")
+    def test_get_user_answers(self, mock):
+        schema = {
+            "test": "test"
+        }
+
+        mock.return_value = schema
+        self.main.get_user_answers()
+        self.assertEqual(self.main.user_answers, schema)
+
+    # def ask_next_action
+    @unittest.skip(reason="Have to figure out how to mock sub function returns")
     @patch("main.Ui.ask_next_action")
     def test_ask_next_action(self, mock):
         mock.return_value = "save_timetable"
@@ -31,6 +47,22 @@ class TestMain(unittest.TestCase):
         self.main.ask_next_action()
         self.assertEqual(self.main.action, "quit")
 
+    @patch("main.Ui.ask_next_action")
+    def test_next_action_is_home(self, mock):
+        mock.return_value = None
+        self.main.ask_next_action()
+        self.assertEqual(self.main.action, None)
+
+
+    # def ask_timetable_custom_name
+    @patch("main.Ui.ask_timetable_custom_name")
+    def test_ask_timetable_custom_name(self, mock):
+        mock.return_value = "test name"
+        self.main.ask_timetable_custom_name()
+        self.assertEqual(self.main.timetable_custom_name, "test name")
+
+
+    #def ask_search_word
     @patch("main.Ui.ask_search_word")
     def test_ask_search_word(self, mock):
         mock.return_value = "word"

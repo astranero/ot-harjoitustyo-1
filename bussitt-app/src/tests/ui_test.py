@@ -61,9 +61,17 @@ class TestUi(unittest.TestCase):
     @patch("ui.inquirer")
     def test_ask_search_word(self, mock_inquirer):
         
-        # mock Home option
+        # mock sarch_word
         mock_inquirer.prompt.return_value = {"search_word": "kamppi"}
         self.assertEqual(self.ui.ask_search_word(), "kamppi")
+
+
+    @patch("ui.inquirer")
+    def test_ask_timetable_custom_name(self, mock_inquirer):
+        
+        # mock timetable custom name
+        mock_inquirer.prompt.return_value = {"timetable_custom_name": "test"}
+        self.assertEqual(self.ui.ask_timetable_custom_name(), "test")
 
 
     @patch("ui.inquirer")
@@ -82,7 +90,6 @@ class TestUi(unittest.TestCase):
         # mock an option
         mock_inquirer.prompt.return_value = {"bus_stop": ("kamppi", "k1")}
         self.assertEqual(self.ui.choose_search_option(search_options), ("kamppi", "k1"))
-
 
 
 
