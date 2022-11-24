@@ -9,6 +9,8 @@ class Display:
         clear_cl()
 
     def render_timetable(self, timetable_data):
+        if timetable_data == None: return
+
         boilerplate()
 
         data_list = []

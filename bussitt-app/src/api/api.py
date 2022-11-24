@@ -67,10 +67,9 @@ def fetch_search_options(search_word):
     except:
         error("Error", response.status_code)
     else:
-
         data = json.loads(response.text)
         if len(data["data"]["stops"]) == 0:
-            return None
+            return "no_matches"
 
     return data
 

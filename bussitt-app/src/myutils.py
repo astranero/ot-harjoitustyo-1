@@ -2,6 +2,7 @@ from sys import platform
 from datetime import datetime
 import time
 import os
+import json
 
 def error(message=None):
     if not message:
@@ -12,8 +13,7 @@ def error(message=None):
 def clear_cl():
 # check which clear command to use depending on os
     clear_cmd = "cls" if platform == "win32" else "clear"
-    if __name__ =="__main__":
-        os.system(clear_cmd)
+    os.system(clear_cmd)
 
 def boilerplate():
     print('+++++++++++ This is Bussitt +++++++++++')
@@ -40,3 +40,16 @@ def get_time_to_departure(timestamp):
     hours = (diff.seconds // 60) // 60
 
     return hours, minutes
+
+
+def save_timetable(bus_stop_name=None, bus_stop_gtfsId=None, custom_name=None):
+    schema = {
+        "bus_stop_name": bus_stop_name,
+        "bus_stop_gtfsId": bus_stop_gtfsId,
+        "custom_name": custom_name
+    }
+
+    json_obj = json.dumps(schema)
+
+    with open("/recordings/record.json", "w") as outfile:
+        outfile.write(json_obj)
