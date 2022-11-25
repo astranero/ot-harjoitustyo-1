@@ -15,6 +15,7 @@ def test_error_with_message(capsys):
     out, err = capsys.readouterr()
     assert out == "a message\n"
 
+@unittest.skip(reason="Not sure yet what to display in boilerplate")
 def test_boilerplate(capsys):
     boilerplate()
     out, err = capsys.readouterr()

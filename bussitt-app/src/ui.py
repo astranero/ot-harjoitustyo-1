@@ -26,7 +26,6 @@ class Ui:
                     inquiry_name,
                     message="Your action",
                     choices=[
-                        ('Search for timetables', "search_timetables"), 
                         ('Add new timetable', 'add_timetable'),
                         ('Manage saved timetables', "manage_timetables"),
                         ('Quit', 'quit')

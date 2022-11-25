@@ -24,10 +24,6 @@ class TestUi(unittest.TestCase):
 
     @patch("ui.inquirer")
     def test_ask_action(self, mock_inquirer):
-        
-        # mock search timetables option
-        mock_inquirer.prompt.return_value = {"action": "search_timetables"}
-        self.assertEqual(self.ui.ask_action(), "search_timetables")
 
         # mock add timetable option
         mock_inquirer.prompt.return_value = {"action": "add_timetable"}

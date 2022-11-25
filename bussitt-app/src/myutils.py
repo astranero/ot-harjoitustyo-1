@@ -2,6 +2,7 @@ from sys import platform
 from datetime import datetime
 import time
 import os
+from random import randint
 
 # my modules
 from config import config
@@ -11,6 +12,28 @@ def error(message=None):
         print("Error has occured")
     else:
         print(message)
+
+
+def random_hint():
+    preprefix = "* For new user:"
+    prefix = "* Random hint:"
+    term = randint(0, 5)
+
+    no_timetables = True
+
+    if no_timetables: print(preprefix, "Add a new timetable, so you can view them here")
+    else:
+        match term:
+            case 1:
+                print(prefix, "You can edit your timetable when viewing a saved timetable.")
+            case 2:
+                print(prefix, "You can give a custom argument for opening specific timetables when starting bussitt.")
+            case 3:
+                print(prefix, "Start bussitt with argument -h or help, to get a list of available arguments.")
+            case 4:
+                print(prefix, "Start bussitt with...")
+            case _:
+                print(prefix, "You can delete a saved timetable you are viewing.")
 
 def clear_cl():
 # check which clear command to use depending on os
@@ -25,6 +48,10 @@ def clear_cl():
 def boilerplate():
     print('+++++++++++ This is Bussitt +++++++++++')
     print("")
+    random_hint()
+    print("")
+    print("")
+    
 
 def transient_print(message):
     boilerplate()

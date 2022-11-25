@@ -66,8 +66,11 @@ sequenceDiagram
 </br>
 </br>
 
-### Bussi-aikataulun löytäminen
-Kun käyttäjä etsii bussi-aikataulua, etenee sovelluksen kontrolli seuraavasti:
+### Bussi-aikataulun hakeminen ja tallentaminen
+Bussi-aikataulun hakeminen ja tallentaminen on jaettu kahteen vuokaavioon. 
+Ensimmäisenä kuvataan bussi-akataulun hakemista ja toiseksi sen tallentamista pysyväistallennukseen.
+
+Kun käyttäjä hakee bussi-aikataulua, etenee sovelluksen kontrolli seuraavasti:
 
 ```mermaid
 sequenceDiagram
@@ -77,7 +80,7 @@ sequenceDiagram
     participant api
     participant Display
     
-    Käyttäjä->>Ui: Valitsee "Search timetable"-toiminnon
+    Käyttäjä->>Ui: Valitsee "Add timetable"-toiminnon
     Ui-->>Main: toiminto
     Main->>Main: get_timetable()
     Main->>Ui: ask_search_word()

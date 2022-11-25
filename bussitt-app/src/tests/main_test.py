@@ -11,9 +11,9 @@ class TestMain(unittest.TestCase):
     # def ask_action
     @patch("main.Ui.ask_action")
     def test_ask_action(self, mock):
-        mock.return_value = "search_timetables"
+        mock.return_value = "add_timetables"
         self.main.ask_action()
-        self.assertEqual(self.main.action, "search_timetables")
+        self.assertEqual(self.main.action, "add_timetables")
 
     @patch("main.Ui.ask_action")
     def test_action_is_quit(self, mock):

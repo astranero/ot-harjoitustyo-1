@@ -21,6 +21,7 @@ class Main:
         self.bus_stop = None
         self.user_answers = None
         self.timetable_custom_name = None
+        self.timetable_cl_arg = None
 
         # Search properties
         self.search_word = None
@@ -35,11 +36,9 @@ class Main:
             # Ask user for action
             self.ask_action()
 
-            if self.action == "search_timetables":
+            if self.action == "add_timetables":
                 self.get_timetables()
                 self.ask_next_action()
-            elif self.action == "add_timetable":
-                transient_print("Feature not yet available")
             elif self.action == "manage_timetables":
                 transient_print("Feature not yet available")
 
@@ -107,11 +106,13 @@ class Main:
     def save_timetable(self):
         self.get_user_answers()
         self.ask_timetable_custom_name()
+        self.ask_timetable_cl_arg()
         
         data = {
             "timetable_name": self.user_answers["bus_stop"]["name"],
             "timetable_gtfsId": self.user_answers["bus_stop"]["gtfsId"],
             "timetable_custom_name": self.timetable_custom_name,
+            "timetable_cl_arg": self.timetable_cl_arg
         }
 
         record_api.save_timetable(data)
