@@ -7,6 +7,7 @@ from display import Display
 from api import api
 from recordings import record_api
 
+
 class Main:
     def __init__(self) -> None:
         # check all init command-line arguments
@@ -27,7 +28,6 @@ class Main:
         self.search_word = None
         self.search_options = None
 
-
     def start(self) -> None:
 
         # Main loop
@@ -36,27 +36,27 @@ class Main:
             # Ask user for action
             self.ask_action()
 
-            if self.action == "add_timetables":
+            if self.action == "add_timetable":
                 self.get_timetables()
-                self.ask_next_action()
+                self.ask_to_save_timetable()
             elif self.action == "manage_timetables":
                 transient_print("Feature not yet available")
 
-                
     def ask_action(self) -> None:
         self.action = self.ui.ask_action()
-        
-        if self.action == "quit": 
-            if __name__ == "__main__": exit()
-            
-    def ask_next_action(self) -> None:
-        self.action = self.ui.ask_next_action()
+
+        if self.action == "quit":
+            if __name__ == "__main__":
+                exit()
+
+    def ask_to_save_timetable(self) -> None:
+        self.action = self.ui.ask_to_save_timetable()
 
         if self.action == "save_timetable":
             self.save_timetable()
-        elif self.action == "quit": 
-            if __name__ == "__main__": exit()
-
+        elif self.action == "quit":
+            if __name__ == "__main__":
+                exit()
 
     def repeat_ask_search_word(self) -> None:
         while True:
@@ -65,7 +65,7 @@ class Main:
 
             # Look for search options by search word
             self.fetch_search_options()
-            
+
             # Ask until there is search options
             if self.search_options == "no_matches":
                 transient_print(f"[?] 0 matches for: {self.search_word}")
@@ -79,7 +79,7 @@ class Main:
         self.search_word = self.ui.ask_search_word()
 
     def ask_timetable_custom_name(self):
-        self.timetable_custom_name = self.ui.ask_timetable_custom_name() 
+        self.timetable_custom_name = self.ui.ask_timetable_custom_name()
 
     def fetch_search_options(self):
         self.search_options = api.fetch_search_options(self.search_word)
@@ -102,17 +102,19 @@ class Main:
 
     def get_user_answers(self):
         self.user_answers = self.ui.get_answers()
-    
+
     def save_timetable(self):
         self.get_user_answers()
         self.ask_timetable_custom_name()
-        self.ask_timetable_cl_arg()
-        
+
+        # next feature
+        # self.ask_timetable_cl_arg()
+
         data = {
             "timetable_name": self.user_answers["bus_stop"]["name"],
             "timetable_gtfsId": self.user_answers["bus_stop"]["gtfsId"],
             "timetable_custom_name": self.timetable_custom_name,
-            "timetable_cl_arg": self.timetable_cl_arg
+            # "timetable_cl_arg": self.timetable_cl_arg
         }
 
         record_api.save_timetable(data)
@@ -120,6 +122,3 @@ class Main:
 
 if __name__ == "__main__":
     Main().start()
-
-
-

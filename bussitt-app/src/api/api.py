@@ -7,8 +7,10 @@ from myutils import *
 
 url = "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql"
 
+
 def fetch_timetable(bus_stop) -> dict:
-    if not bus_stop: error()
+    if not bus_stop:
+        error()
 
     gtfsId = bus_stop["gtfsId"]
     query = f"""
@@ -47,8 +49,10 @@ def fetch_timetable(bus_stop) -> dict:
 
     return data
 
+
 def fetch_search_options(search_word):
-    if not search_word: error()
+    if not search_word:
+        error()
 
     query = f"""
     query {{
@@ -72,6 +76,3 @@ def fetch_search_options(search_word):
             return "no_matches"
 
     return data
-
-
-

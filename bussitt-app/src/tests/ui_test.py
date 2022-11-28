@@ -4,10 +4,10 @@ from unittest.mock import patch
 # my modules
 from ui import Ui
 
+
 class TestUi(unittest.TestCase):
     def setUp(self) -> None:
         self.ui = Ui()
-
 
     def test_init(self):
         schema = {
@@ -20,7 +20,6 @@ class TestUi(unittest.TestCase):
             }
         }
         self.assertEqual(self.ui.answers, schema)
-
 
     @patch("ui.inquirer")
     def test_ask_action(self, mock_inquirer):
@@ -37,38 +36,31 @@ class TestUi(unittest.TestCase):
         mock_inquirer.prompt.return_value = {"action": "quit"}
         self.assertEqual(self.ui.ask_action(), "quit")
 
-
     @patch("ui.inquirer")
-    def test_ask_next_action(self, mock_inquirer):
-        
+    def test_ask_to_save_timetable(self, mock_inquirer):
+
         # mock Home option
-        mock_inquirer.prompt.return_value = {"next_action": None}
-        self.assertEqual(self.ui.ask_next_action(), None)
+        mock_inquirer.prompt.return_value = {"save_timetable": None}
+        self.assertEqual(self.ui.ask_to_save_timetable(), None)
 
         # mock save timetable option
-        mock_inquirer.prompt.return_value = {"next_action": "save_timetable"}
-        self.assertEqual(self.ui.ask_next_action(), "save_timetable")
-
-        # mock quit option
-        mock_inquirer.prompt.return_value = {"next_action": "quit"}
-        self.assertEqual(self.ui.ask_next_action(), "quit")
-
+        mock_inquirer.prompt.return_value = {
+            "save_timetable": "save_timetable"}
+        self.assertEqual(self.ui.ask_to_save_timetable(), "save_timetable")
 
     @patch("ui.inquirer")
     def test_ask_search_word(self, mock_inquirer):
-        
+
         # mock sarch_word
         mock_inquirer.prompt.return_value = {"search_word": "kamppi"}
         self.assertEqual(self.ui.ask_search_word(), "kamppi")
 
-
     @patch("ui.inquirer")
     def test_ask_timetable_custom_name(self, mock_inquirer):
-        
+
         # mock timetable custom name
         mock_inquirer.prompt.return_value = {"timetable_custom_name": "test"}
         self.assertEqual(self.ui.ask_timetable_custom_name(), "test")
-
 
     @patch("ui.inquirer")
     def test_choose_search_option(self, mock_inquirer):
@@ -85,9 +77,9 @@ class TestUi(unittest.TestCase):
         }
         # mock an option
         mock_inquirer.prompt.return_value = {"bus_stop": ("kamppi", "k1")}
-        self.assertEqual(self.ui.choose_search_option(search_options), ("kamppi", "k1"))
+        self.assertEqual(self.ui.choose_search_option(
+            search_options), ("kamppi", "k1"))
 
 
-
-if __name__ =="__main__":
+if __name__ == "__main__":
     unittest.main()

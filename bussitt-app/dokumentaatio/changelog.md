@@ -13,3 +13,6 @@
 - Luotu uusia testejä uusille ominaisuuksille
 - Luotu tallennus kansio
 - Luotu config kansio
+
+## Viikko 5
+- Käyttäjä näkee alkuvalikosta tallennetut bussiaikataulut

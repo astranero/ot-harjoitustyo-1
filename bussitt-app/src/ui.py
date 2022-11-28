@@ -17,39 +17,37 @@ class Ui:
             },
         }
 
-
     def ask_action(self) -> dict:
         boilerplate()
         inquiry_name = "action"
         question = [
             inquirer.List(
-                    inquiry_name,
-                    message="Your action",
-                    choices=[
+                inquiry_name,
+                message="Your action",
+                choices=[
                         ('Add new timetable', 'add_timetable'),
                         ('Manage saved timetables', "manage_timetables"),
                         ('Quit', 'quit')
-                    ],
-                )
-            ]
+                ],
+            )
+        ]
 
         self.answers[inquiry_name] = inquirer.prompt(question)[inquiry_name]
         clear_cl()
 
         return self.answers[inquiry_name]
 
-    def ask_next_action(self) -> dict:
+    def ask_to_save_timetable(self) -> dict:
         print("")
         print("")
-        inquiry_name = "next_action"
+        inquiry_name = "save_timetable"
         question = [inquirer.List(
             inquiry_name,
-            message = "Select new action",
-            choices = [
-                    ("Home", None),
-                    ("Save timetable", "save_timetable"),
-                    ("Quit", "quit")
-                ]
+            message="Would you like to save this timetable?",
+            choices=[
+                    ("Yes", "save_timetable"),
+                    ("No", None)
+            ]
         )]
 
         self.answers[inquiry_name] = inquirer.prompt(question)[inquiry_name]
@@ -70,10 +68,11 @@ class Ui:
         clear_cl()
 
         return self.answers[inquiry_name]
-        
+
     def choose_search_option(self, search_options) -> dict:
         boilerplate()
-        if not search_options: error()
+        if not search_options:
+            error()
 
         inquiry_name = "bus_stop"
         choices = []
@@ -84,7 +83,7 @@ class Ui:
                 {"name": item['name'], "gtfsId": item["gtfsId"]}
             )
             choices.append(tuple)
-        
+
         question = [inquirer.List(
             inquiry_name,
             message="Specify bus stop",
@@ -95,7 +94,6 @@ class Ui:
         clear_cl()
 
         return self.answers[inquiry_name]
-
 
     def ask_timetable_custom_name(self):
         boilerplate()
@@ -111,10 +109,5 @@ class Ui:
 
         return self.answers[inquiry_name]
 
-
     def get_answers(self):
         return self.answers
-
-
-
-
