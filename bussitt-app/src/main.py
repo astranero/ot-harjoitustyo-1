@@ -33,6 +33,10 @@ class Main:
         # Main loop
         while True:
 
+
+            # If any recorded timetables, display them
+            self.display.render_timetable_list(record_api.get_records_file())
+
             # Ask user for action
             self.ask_action()
 
@@ -60,6 +64,7 @@ class Main:
 
     def repeat_ask_search_word(self) -> None:
         while True:
+
             # Ask for a search word until there are search options
             self.ask_search_word()
 
@@ -112,6 +117,7 @@ class Main:
 
         data = {
             "timetable_name": self.user_answers["bus_stop"]["name"],
+            "timetable_code": self.user_answers["bus_stop"]["code"],
             "timetable_gtfsId": self.user_answers["bus_stop"]["gtfsId"],
             "timetable_custom_name": self.timetable_custom_name,
             # "timetable_cl_arg": self.timetable_cl_arg

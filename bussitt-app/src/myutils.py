@@ -53,9 +53,9 @@ def clear_cl():
 def boilerplate():
     print('+++++++++++ This is Bussitt +++++++++++')
     print("")
-    random_hint()
-    print("")
-    print("")
+    # random_hint()
+    # print("")
+    # print("")
 
 
 def transient_print(message):

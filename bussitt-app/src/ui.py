@@ -18,7 +18,6 @@ class Ui:
         }
 
     def ask_action(self) -> dict:
-        boilerplate()
         inquiry_name = "action"
         question = [
             inquirer.List(
@@ -56,7 +55,6 @@ class Ui:
         return self.answers[inquiry_name]
 
     def ask_search_word(self) -> dict:
-        boilerplate()
 
         inquiry_name = "search_word"
         question = [inquirer.Text(
@@ -70,7 +68,6 @@ class Ui:
         return self.answers[inquiry_name]
 
     def choose_search_option(self, search_options) -> dict:
-        boilerplate()
         if not search_options:
             error()
 
@@ -80,7 +77,10 @@ class Ui:
         for item in search_options["data"]["stops"]:
             tuple = (
                 f"{item['name']} {item['code']}",
-                {"name": item['name'], "gtfsId": item["gtfsId"]}
+                {
+                    "name": item['name'], 
+                    "code": item['code'],
+                    "gtfsId": item["gtfsId"]}
             )
             choices.append(tuple)
 
@@ -96,7 +96,6 @@ class Ui:
         return self.answers[inquiry_name]
 
     def ask_timetable_custom_name(self):
-        boilerplate()
 
         inquiry_name = "timetable_custom_name"
         question = [inquirer.Text(

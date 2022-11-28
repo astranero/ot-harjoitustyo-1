@@ -15,10 +15,12 @@ Sovellusta voi käyttää kuka tahansa kuka haluaa nähdä nopeasti tietokoneens
 
 ### Aikataulujen katselmointi
 
-- Käyttäjä voi alkuvalikosta valita tallennetun aikataulun ja katsoa lähtevät bussit
+- Käyttäjä näkee listan tallennetuista aikatauluista
+- Käyttäjä voi valita aikataulujen katselmoinnin
+- Käyttäjä voi valita aikataulun mitä katsoa
 
 
-### Aikataulujen tallentaminen
+### Uuden aikataulun tallentaminen
 
 - Käyttäjä voi hakea aikataulun bussipysäkin nimellä ja tallentaa haluamansa aikataulun
 - Käyttäjä voi nimetä aikataulun haluaman mukaan
@@ -30,11 +32,14 @@ Sovellusta voi käyttää kuka tahansa kuka haluaa nähdä nopeasti tietokoneens
 - Käyttäjä voi poistaa tallennettuja aikatauluja
 
 
-## Jatkokehity
-Perusversion jälkeen järjestelmää täydennetään seuraavilla toiminnallisuuksilla:
+## Jatkokehitys
 
+Perusversion jälkeen järjestelmää täydennetään seuraavilla toiminnallisuuksilla (järjestyksessä):
+
+- API haku indikaattorit
 - Bussipysäkin taikataulun hakemista laajennetaan niin että bussipysäkkejä voi hakea katuosoitteella
 - Tallennettu aikataulu voidaan avata käynnistämällä sovellus ja antamalla pysäkinnimi argumenttina komentorivillä
 - Sovellus tulostaa tiedot ja komennot help komennot
 - Sovellus tulostaa tallennettua aikataulua vastaavat komentorivi argumentit
 - Aikataulu haulla on pelkän pysäkin nimen sijasta tiedot kaikista busseista ja niiden päätepysäkeistä helpottamaan valintaa
+- Arvioitu kävelyaika pysäkille annetusta osoitteesta
