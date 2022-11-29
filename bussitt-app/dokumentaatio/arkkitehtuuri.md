@@ -1,6 +1,6 @@
 # Arkkirehtuurikuvaus
 ## Rakenne
-Seuraava kaavio havainnollistaa koodin rakennetta ja sen eri luokkien/moduulien yhteyksiä.
+Seuraava kaavio havainnollistaa koodin rakennetta ja sen eri luokkien/moduulien yhteyksiä. Pakkausrakenne on seuraavanlainen:
 
 ```mermaid
 flowchart RL

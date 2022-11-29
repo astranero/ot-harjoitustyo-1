@@ -41,3 +41,4 @@ Perusversion jälkeen järjestelmää täydennetään seuraavilla toiminnallisuu
 - Sovellus tulostaa tallennettua aikataulua vastaavat komentorivi argumentit.
 - Aikataulu haulla on pelkän pysäkin nimen sijasta tiedot kaikista busseista ja niiden päätepysäkeistä helpottamaan valintaa.
 - Arvioitu kävelyaika pysäkille annetusta osoitteesta.
+- Tekstikäyttöliittmyän parantelu
