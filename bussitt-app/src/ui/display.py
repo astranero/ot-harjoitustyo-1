@@ -31,11 +31,12 @@ class Display:
         # table_labels_style = Style(color="white", bgcolor="yellow")
         # labels_text = Text(text=table_labels, style=table_labels_style)
 
-        match style:
-            case "simple":
-                box_style = box.SIMPLE
-            case _:
-                box_style = box.HEAVY_EDGE
+
+        if style == "simple":
+            box_style = box.SIMPLE
+        else:
+            box_style = box.HEAVY_EDGE
+        
 
         table = Table(padding=(0, 1), box=box_style)
 
