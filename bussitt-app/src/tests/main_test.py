@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch, MagicMock
 
-from index import Main
+from main import Main
 
 
 class TestMain(unittest.TestCase):

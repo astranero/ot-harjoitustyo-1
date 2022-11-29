@@ -21,7 +21,7 @@ class TestUi(unittest.TestCase):
         }
         self.assertEqual(self.ui.answers, schema)
 
-    @patch("ui.inquirer")
+    @patch("ui.ui.inquirer")
     def test_ask_action(self, mock_inquirer):
 
         # mock add timetable option
@@ -36,7 +36,7 @@ class TestUi(unittest.TestCase):
         mock_inquirer.prompt.return_value = {"action": "quit"}
         self.assertEqual(self.ui.ask_action(), "quit")
 
-    @patch("ui.inquirer")
+    @patch("ui.ui.inquirer")
     def test_ask_to_save_timetable(self, mock_inquirer):
 
         # mock Home option
@@ -48,21 +48,21 @@ class TestUi(unittest.TestCase):
             "save_timetable": "save_timetable"}
         self.assertEqual(self.ui.ask_to_save_timetable(), "save_timetable")
 
-    @patch("ui.inquirer")
+    @patch("ui.ui.inquirer")
     def test_ask_search_word(self, mock_inquirer):
 
         # mock sarch_word
         mock_inquirer.prompt.return_value = {"search_word": "kamppi"}
         self.assertEqual(self.ui.ask_search_word(), "kamppi")
 
-    @patch("ui.inquirer")
+    @patch("ui.ui.inquirer")
     def test_ask_timetable_custom_name(self, mock_inquirer):
 
         # mock timetable custom name
         mock_inquirer.prompt.return_value = {"timetable_custom_name": "test"}
         self.assertEqual(self.ui.ask_timetable_custom_name(), "test")
 
-    @patch("ui.inquirer")
+    @patch("ui.ui.inquirer")
     def test_choose_search_option(self, mock_inquirer):
         search_options = {
             "data": {
