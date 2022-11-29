@@ -1,4 +1,4 @@
-disable_clear_cl = False
+DISABLE_CLEAR_CL = False
 
 configs_list = [
     {

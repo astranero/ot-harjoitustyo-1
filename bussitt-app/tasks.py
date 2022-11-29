@@ -25,3 +25,7 @@ def report(ctx):
 @task
 def open_report(ctx):
     ctx.run("google-chrome htmlcov/index.html", pty=True)
+
+@task
+def lint(ctx):
+    ctx.run("pylint src", pty=True)

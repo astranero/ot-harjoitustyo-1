@@ -2,7 +2,6 @@ from sys import platform
 from datetime import datetime
 import time
 import os
-from random import randint
 
 # my modules
 from config import config
@@ -31,10 +30,12 @@ def error(message=None):
 #                     prefix, "You can edit your timetable when viewing a saved timetable.")
 #             case 2:
 #                 print(
-#                     prefix, "You can give a custom argument for opening specific timetables when starting bussitt.")
+#                     prefix, "You can give a custom argument for
+#                       opening specific timetables when starting bussitt.")
 #             case 3:
 #                 print(
-#                     prefix, "Start bussitt with argument -h or help, to get a list of available arguments.")
+#                     prefix, "Start bussitt with argument -h or help,
+#                       to get a list of available arguments.")
 #             case 4:
 #                 print(prefix, "Start bussitt with...")
 #             case _:
@@ -43,7 +44,7 @@ def error(message=None):
 
 def clear_cl():
     # check which clear command to use depending on os
-    if config.disable_clear_cl:
+    if config.DISABLE_CLEAR_CL:
         return
 
     clear_cmd = "cls" if platform == "win32" else "clear"
@@ -67,16 +68,16 @@ def transient_print(message):
 
 def get_time_and_date(timestamp):
     unix = int(timestamp)
-    t = datetime.fromtimestamp(unix).strftime('%H:%M')
-    d = datetime.fromtimestamp(unix).strftime('%d-%m-%Y')
-    return t, d
+    time_hm = datetime.fromtimestamp(unix).strftime('%H:%M')
+    date = datetime.fromtimestamp(unix).strftime('%d-%m-%Y')
+    return time_hm, date
 
 
 def get_time_to_departure(timestamp):
     unix = int(timestamp)
-    t = datetime.fromtimestamp(unix)
+    time_ts = datetime.fromtimestamp(unix)
     now = datetime.now()
-    diff = abs(now - t)
+    diff = abs(now - time_ts)
     minutes = (diff.seconds // 60) % 60
     hours = (diff.seconds // 60) // 60
 

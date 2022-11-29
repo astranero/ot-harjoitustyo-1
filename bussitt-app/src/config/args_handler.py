@@ -1,7 +1,7 @@
-import sys
+# import sys
 
-# my modules
-from config import config
+# # my modules
+# from config import config
 
 
 def check_arguments():
@@ -10,5 +10,5 @@ def check_arguments():
     #     exit()
 
     # if "-dc" in sys.argv or "disable-clear" in sys.argv:
-    #     config.disable_clear_cl = True
+    #     config.DISABLE_CLEAR_CL = True
     pass

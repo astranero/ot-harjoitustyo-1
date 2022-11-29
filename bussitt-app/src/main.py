@@ -1,7 +1,8 @@
+import sys
 
 # my modules
 from config import args_handler
-from myutils import *
+from myutils import error, transient_print
 from ui import Ui
 from display import Display
 from api import api
@@ -22,7 +23,6 @@ class Main:
         self.bus_stop = None
         self.user_answers = None
         self.timetable_custom_name = None
-        self.timetable_cl_arg = None
 
         # Search properties
         self.search_word = None
@@ -32,7 +32,6 @@ class Main:
 
         # Main loop
         while True:
-
 
             # If any recorded timetables, display them
             self.display.render_timetable_list(record_api.get_records_file())
@@ -51,7 +50,7 @@ class Main:
 
         if self.action == "quit":
             if __name__ == "__main__":
-                exit()
+                sys.exit()
 
     def ask_to_save_timetable(self) -> None:
         self.action = self.ui.ask_to_save_timetable()
@@ -60,7 +59,7 @@ class Main:
             self.save_timetable()
         elif self.action == "quit":
             if __name__ == "__main__":
-                exit()
+                sys.exit()
 
     def repeat_ask_search_word(self) -> None:
         while True:
@@ -71,12 +70,12 @@ class Main:
             # Look for search options by search word
             self.fetch_search_options()
 
-            # Ask until there is search options
+            # Ask until there == search options
             if self.search_options == "no_matches":
                 transient_print(f"[?] 0 matches for: {self.search_word}")
-            elif self.search_options == None:
+            elif self.search_options is None:
                 error()
-                exit()
+                sys.exit()
             else:
                 break
 
@@ -112,15 +111,11 @@ class Main:
         self.get_user_answers()
         self.ask_timetable_custom_name()
 
-        # next feature
-        # self.ask_timetable_cl_arg()
-
         data = {
             "timetable_name": self.user_answers["bus_stop"]["name"],
             "timetable_code": self.user_answers["bus_stop"]["code"],
             "timetable_gtfsId": self.user_answers["bus_stop"]["gtfsId"],
             "timetable_custom_name": self.timetable_custom_name,
-            # "timetable_cl_arg": self.timetable_cl_arg
         }
 
         record_api.save_timetable(data)

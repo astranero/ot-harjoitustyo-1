@@ -1,7 +1,7 @@
 import inquirer
 
 # my modules
-from myutils import *
+from myutils import clear_cl, error
 
 
 class Ui:
@@ -75,14 +75,14 @@ class Ui:
         choices = []
 
         for item in search_options["data"]["stops"]:
-            tuple = (
+            choice = (
                 f"{item['name']} {item['code']}",
                 {
-                    "name": item['name'], 
+                    "name": item['name'],
                     "code": item['code'],
                     "gtfsId": item["gtfsId"]}
             )
-            choices.append(tuple)
+            choices.append(choice)
 
         question = [inquirer.List(
             inquiry_name,

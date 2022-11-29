@@ -1,11 +1,12 @@
-import requests
 import json
 import time
 
-# my modules
-from myutils import *
+import requests
 
-url = "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql"
+# my modules
+from myutils import error
+
+URL = "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql"
 
 
 def fetch_timetable(bus_stop) -> dict:
@@ -13,11 +14,12 @@ def fetch_timetable(bus_stop) -> dict:
         error()
 
     gtfsId = bus_stop["gtfsId"]
+    start_time = int(time.time())
     query = f"""
         query {{
             stop(id: "{gtfsId}") {{
                 name
-                stoptimesWithoutPatterns(numberOfDepartures: 10, startTime: {int(time.time())}) {{
+                stoptimesWithoutPatterns(numberOfDepartures: 10, startTime: {start_time}) {{
                     stop {{
                         platformCode
                     }}
@@ -41,9 +43,9 @@ def fetch_timetable(bus_stop) -> dict:
     data = None
 
     try:
-        response = requests.post(url, json={'query': query})
-    except:
-        error("Error", response.status_code)
+        response = requests.post(URL, json={'query': query}, timeout=4)
+    except TimeoutError:
+        error("Status code: "+ response.status_code)
     else:
         data = json.loads(response.text)
 
@@ -67,9 +69,9 @@ def fetch_search_options(search_word):
     data = None
 
     try:
-        response = requests.post(url, json={'query': query})
-    except:
-        error("Error", response.status_code)
+        response = requests.post(URL, json={'query': query}, timeout=4)
+    except TimeoutError:
+        error("Status code: " + response.status_code)
     else:
         data = json.loads(response.text)
         if len(data["data"]["stops"]) == 0:
