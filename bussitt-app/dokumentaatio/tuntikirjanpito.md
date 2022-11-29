@@ -3,10 +3,11 @@
 
 | päivä | aika (h) | mitä tein  |
 | :----:|:-----| :-----|
-| 11.5 | 2 | Harjoitustyön suunnitteleminen ja vaatimusmäärittelyn laatiminen |
-| 16.5 | 6 | Sovelluksen vähimmäisversion koodaaminen |
-| 17.5 | 4 | UML kirjoittaminen |
-| 18.5 | 5 | Sovelluksen vähimmäisversion koodaaminen |
-| 20.5 | 8 | Käyttöliittymän pytest testaus ja myutils moduulin testaus |
-| 24.5 | 7 | Uusia testejä luotu. Uusia ominaisuuksia kuten aikataulun tallentaminen |
+| 11.11 | 2 | Harjoitustyön suunnitteleminen ja vaatimusmäärittelyn laatiminen |
+| 16.11 | 6 | Sovelluksen vähimmäisversion koodaaminen |
+| 17.11 | 4 | UML kirjoittaminen |
+| 18.11 | 5 | Sovelluksen vähimmäisversion koodaaminen |
+| 20.11 | 8 | Käyttöliittymän pytest testaus ja myutils moduulin testaus |
+| 24.11 | 7 | Uusia testejä luotu. Uusia ominaisuuksia kuten aikataulun tallentaminen |
+| 29.11 | 4 | Tallennetut akataulut näytetään kotivalikossa, Koodin refaktorointia ja dokumentointia |
 

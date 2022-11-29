@@ -42,7 +42,7 @@ class Ui:
         inquiry_name = "save_timetable"
         question = [inquirer.List(
             inquiry_name,
-            message="Would you like to save this timetable?",
+            message="Would you like to save timetable?",
             choices=[
                     ("Yes", "save_timetable"),
                     ("No", None)

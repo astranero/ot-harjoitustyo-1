@@ -88,7 +88,7 @@ class Display:
                 "Bus stop": timetable["timetable_name"] + " " + timetable["timetable_code"],
             })
 
-        table = self.construct_table(data_list, style="simple")
+        table = self.construct_table(data_list)
 
         console = Console()
         console.print(table)
