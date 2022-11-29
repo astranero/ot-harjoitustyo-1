@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import patch, MagicMock
 from datetime import datetime
 
-from myutils import *
+from myutils.myutils import *
 
 
 def test_error_without_message(capsys):

@@ -6,7 +6,7 @@ from rich.table import Table, box
 # from rich.text import Text
 
 # my modules
-from myutils import clear_cl, get_time_and_date
+from myutils.myutils import clear_cl, get_time_and_date
 
 
 class Display:

@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import patch
 
 # my modules
-from ui import Ui
+from ui.ui import Ui
 
 
 class TestUi(unittest.TestCase):

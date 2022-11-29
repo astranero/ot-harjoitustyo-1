@@ -4,7 +4,7 @@ import time
 import requests
 
 # my modules
-from myutils import error
+from myutils.myutils import error
 
 URL = "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql"
 

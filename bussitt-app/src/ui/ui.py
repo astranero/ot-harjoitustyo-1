@@ -1,7 +1,7 @@
 import inquirer
 
 # my modules
-from myutils import clear_cl, error
+from myutils.myutils import clear_cl, error
 
 
 class Ui:

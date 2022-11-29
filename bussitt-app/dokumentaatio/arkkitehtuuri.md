@@ -3,10 +3,28 @@
 Seuraava kaavio havainnollistaa koodin rakennetta ja sen eri luokkien/moduulien yhteyksiä. Pakkausrakenne on seuraavanlainen:
 
 ```mermaid
-flowchart RL
-    Ui --- Main
-    Display --- Main
-    api{api} --- Main
+flowchart TB
+    subgraph ui
+    Ui
+    Display
+    end
+
+    ui -.-> Main
+
+    Main -.- recordings
+
+    subgraph recordings
+    record_api.py
+    records.json
+
+    record_api.py -.- records.json
+    end
+
+    Main -.- api
+
+    subgraph api
+    api.py
+    end
 ```
 </br>
 
@@ -14,11 +32,25 @@ flowchart RL
 myutils.py sisältää yleisiä työkalu funktioita ja on importattu kaikkiin luokkiin ja moduuleihin
 
 ```mermaid
-flowchart LR
-    myutils([myutils.py]) --- Main
-    myutils([myutils.py]) --- Ui
-    myutils([myutils.py]) --- Display
-    myutils([myutils.py]) --- api{api}
+flowchart BT
+    subgraph ui
+    Ui
+    Display
+    end
+
+    subgraph api
+    api.py
+    end
+
+    subgraph recordings
+    record_api    
+    end
+
+    myutils -.-> Main
+    myutils -.-> Ui
+    myutils -.-> Display
+    myutils -.-> record_api
+    myutils -.-> api.py
 ```
 
 ## Käyttöliittymä

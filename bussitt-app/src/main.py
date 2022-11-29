@@ -2,9 +2,9 @@ import sys
 
 # my modules
 from config import args_handler
-from myutils import error, transient_print
-from ui import Ui
-from display import Display
+from myutils.myutils import error, transient_print
+from ui.ui import Ui
+from ui.display import Display
 from api import api
 from recordings import record_api
 
