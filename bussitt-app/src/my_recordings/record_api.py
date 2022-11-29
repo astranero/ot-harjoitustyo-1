@@ -3,7 +3,7 @@ import json
 
 
 def get_path():
-    return "src/recordings/records.json"
+    return "src/my_recordings/records.json"
 
 
 def is_empty(records_list):
