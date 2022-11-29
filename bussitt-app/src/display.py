@@ -92,3 +92,4 @@ class Display:
 
         console = Console()
         console.print(table)
+        print("")

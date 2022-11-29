@@ -15,30 +15,30 @@ def error(message=None):
         print(message)
 
 
-def random_hint():
-    preprefix = "* For new user:"
-    prefix = "* Random hint:"
-    term = randint(0, 5)
+# def random_hint():
+#     preprefix = "* For new user:"
+#     prefix = "* Random hint:"
+#     term = randint(0, 5)
 
-    no_timetables = True
+#     no_timetables = True
 
-    if no_timetables:
-        print(preprefix, "Add a new timetable, so you can view them here")
-    else:
-        match term:
-            case 1:
-                print(
-                    prefix, "You can edit your timetable when viewing a saved timetable.")
-            case 2:
-                print(
-                    prefix, "You can give a custom argument for opening specific timetables when starting bussitt.")
-            case 3:
-                print(
-                    prefix, "Start bussitt with argument -h or help, to get a list of available arguments.")
-            case 4:
-                print(prefix, "Start bussitt with...")
-            case _:
-                print(prefix, "You can delete a saved timetable you are viewing.")
+#     if no_timetables:
+#         print(preprefix, "Add a new timetable, so you can view them here")
+#     else:
+#         match term:
+#             case 1:
+#                 print(
+#                     prefix, "You can edit your timetable when viewing a saved timetable.")
+#             case 2:
+#                 print(
+#                     prefix, "You can give a custom argument for opening specific timetables when starting bussitt.")
+#             case 3:
+#                 print(
+#                     prefix, "Start bussitt with argument -h or help, to get a list of available arguments.")
+#             case 4:
+#                 print(prefix, "Start bussitt with...")
+#             case _:
+#                 print(prefix, "You can delete a saved timetable you are viewing.")
 
 
 def clear_cl():
