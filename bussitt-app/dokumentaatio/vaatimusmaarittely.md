@@ -2,10 +2,10 @@
 
 ## Sovelluksen tarkoitus
 
-Sovelluksen avulla käyttäjän on mahdollista nähdä omasta tietokoneen terminaalista toivomansa pysäkin seuraavat 10 lähtevää bussia tästä hetkestä alkaen. Käyttäjä voi tallentaa pysäkin seuraavaa kertaa varten, kun käyttäjä avaa terminaalisovelluksen. Näin hän voi nopeasti nähdä hänen suosikki pysäkkien lähtevät bussit. Sovelluksessa voi myös hallinnoida tallentamiaan bussi-aikataulu näkymiä lisäämällä, nimeämällä tai poistamalla näitä. Hyöty näkyy esim. siinä, jos työstentelee paljon terminaalissa, niin yhdellä komennolla voi nopeasti nähdä omat lähtevät bussit.
+Bussitt sovellus on terminaalissa käytettävä sovellus, jolla voi nopeasti hakea ja tallentaa bussipysäkien aikatauluja tarkastelua varten. Sovellus tarjoaa aikataulunäkymän käynnistämis hetkestä seuraavat 10 lähtevää bussia. Hyöty näkyy siinä, jos työstentelee paljon terminaalissa, niin yhdellä komennolla voi nopeasti nähdä omat lähtevät bussit toivomalta pysäkiltä.
 
 ## Käyttäjät
-Sovellusta voi käyttää kuka tahansa kuka haluaa nähdä nopeasti tietokoneensa terminaalista lähtevät bussit omalta pysäkiltään.
+Sovellusta voi käyttää kuka tahansa kuka tahansa.
 
 ## Käyttöliittymäluonnos
 --
@@ -15,15 +15,14 @@ Sovellusta voi käyttää kuka tahansa kuka haluaa nähdä nopeasti tietokoneens
 
 ### Aikataulujen katselmointi
 
-- Käyttäjä näkee listan tallennetuista aikatauluista
-- Käyttäjä voi valita aikataulujen katselmoinnin
-- Käyttäjä voi valita aikataulun mitä katsoa
+- Käyttäjä näkee listan tallennetuista aikatauluista (TEHTY)
+- Käyttäjä voi valita alkuvalikosta aikataulujen katselmoinnin ja valita aikataulun jota katsoa.
 
 
 ### Uuden aikataulun tallentaminen
 
-- Käyttäjä voi hakea aikataulun bussipysäkin nimellä ja tallentaa haluamansa aikataulun
-- Käyttäjä voi nimetä aikataulun haluaman mukaan
+- Käyttäjä voi hakea aikataulun bussipysäkin nimellä ja tallentaa haluamansa aikataulun (TEHTY)
+- Käyttäjä voi nimetä aikataulun haluaman mukaan (TEHTY)
 
 
 ### Aikataulujen hallinnointi
@@ -36,10 +35,9 @@ Sovellusta voi käyttää kuka tahansa kuka haluaa nähdä nopeasti tietokoneens
 
 Perusversion jälkeen järjestelmää täydennetään seuraavilla toiminnallisuuksilla (järjestyksessä):
 
-- API haku indikaattorit
-- Bussipysäkin taikataulun hakemista laajennetaan niin että bussipysäkkejä voi hakea katuosoitteella
-- Tallennettu aikataulu voidaan avata käynnistämällä sovellus ja antamalla pysäkinnimi argumenttina komentorivillä
-- Sovellus tulostaa tiedot ja komennot help komennot
-- Sovellus tulostaa tallennettua aikataulua vastaavat komentorivi argumentit
-- Aikataulu haulla on pelkän pysäkin nimen sijasta tiedot kaikista busseista ja niiden päätepysäkeistä helpottamaan valintaa
-- Arvioitu kävelyaika pysäkille annetusta osoitteesta
+- Bussipysäkin taikataulun hakemista laajennetaan, niin että bussipysäkkejä voi hakea katuosoitteella.
+- Yksittäinen tallennettu aikataulu voidaan avata käynnistämällä sovellus komentorivi argumentin kanssa.
+- Sovellus tulostaa sovelluksen kaikki toiminnot help argumentilla.
+- Sovellus tulostaa tallennettua aikataulua vastaavat komentorivi argumentit.
+- Aikataulu haulla on pelkän pysäkin nimen sijasta tiedot kaikista busseista ja niiden päätepysäkeistä helpottamaan valintaa.
+- Arvioitu kävelyaika pysäkille annetusta osoitteesta.
