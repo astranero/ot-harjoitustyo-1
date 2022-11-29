@@ -11,3 +11,4 @@
 | 24.11 | 7 | Uusia testejä luotu. Uusia ominaisuuksia kuten aikataulun tallentaminen |
 | 29.11 | 4 | Tallennetut akataulut näytetään kotivalikossa, Koodin refaktorointia ja dokumentointia |
 
+Tunnit yhteensä: 36h
