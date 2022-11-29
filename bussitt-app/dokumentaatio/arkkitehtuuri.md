@@ -11,9 +11,9 @@ flowchart TB
 
     ui -.-> Main
 
-    Main -.- recordings
+    Main -.- my_recordings
 
-    subgraph recordings
+    subgraph my_recordings
     record_api.py
     records.json
 
@@ -42,7 +42,7 @@ flowchart BT
     api.py
     end
 
-    subgraph recordings
+    subgraph my_recordings
     record_api    
     end
 
