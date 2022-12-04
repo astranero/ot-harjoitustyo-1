@@ -24,9 +24,6 @@ class Main:
         self.user_answers = None
         self.timetable_custom_name = None
 
-        # view properties
-        self.timetable_option = None
-
         # Search properties
         self.search_word = None
         self.search_options = None
@@ -131,11 +128,11 @@ class Main:
         # Display timetable
         self.display_timetable(self.bus_stop)
 
-    def get_user_answers(self):
+    def get_timetable_info(self):
         self.user_answers = self.ui.get_answers()
 
     def save_timetable(self):
-        self.get_user_answers()
+        self.get_timetable_info()
         self.ask_timetable_custom_name()
 
         data = {

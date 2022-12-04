@@ -20,4 +20,7 @@
 
 ## Viikko 5
 - Käyttäjä voi valita tallennetun bussi-aikataulun katseltavaksi
+- Luotu sekvenssikaavio tallennukselle
+- Päivitetty Readme.md
+- Sovellus on ladattavissa
 

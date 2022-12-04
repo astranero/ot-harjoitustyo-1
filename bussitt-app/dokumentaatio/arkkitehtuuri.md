@@ -102,6 +102,7 @@ sequenceDiagram
 Bussi-aikataulun hakeminen ja tallentaminen on jaettu kahteen vuokaavioon. 
 Ensimmäisenä kuvataan bussi-akataulun hakemista ja toiseksi sen tallentamista pysyväistallennukseen.
 
+### Aikataulun hakeminen
 Kun käyttäjä hakee bussi-aikataulua, etenee sovelluksen kontrolli seuraavasti:
 
 ```mermaid
@@ -141,5 +142,48 @@ sequenceDiagram
     api-->>Main: JSON data: aikataulu data
     deactivate api
     Main->>Display: render_timetable(aikataulu data)
+
+```
+
+#### Aikataulun tallentaminen
+Kun käyttäjä tallentaa bussi-aikataulun, etenee sovelluksen kontrolli seuraavasti:
+
+```mermaid
+sequenceDiagram
+    actor Käyttäjä
+    participant Ui
+    participant Main
+    participant record_api
+    participant record_file
+    
+    Ui->>Käyttäjä: Kysyy käyttäjältä tallenetaanko aikataulu
+    activate Käyttäjä
+    Käyttäjä->>Ui: Valitsee "yes"
+    deactivate Käyttäjä
+    Ui-->>Main: toiminto
+    Main->>Main: save_timetable() 
+    Main->>Ui: get_timetable_info()
+    activate Ui
+    Ui-->>Main: Aikataulu informaatio
+    deactivate Ui
+    Main->>Ui: get_timetable_custom_name()
+    activate Ui
+    Ui->>Käyttäjä: Kyysyy käyttäjältä bussi-aikataululle nimeä
+    activate Käyttäjä
+    Käyttäjä-->>Ui: Antaa nimen
+    deactivate Käyttäjä
+    Ui-->>Main: Aikataulu nimi
+    deactivate Ui
+    Note over Main: Luodaan tallennusta varten data objekti 
+    Main->>record_api: save_timetable(data)
+    record_api->>record_file: get_records_file()
+    activate record_file
+    record_file-->>record_api: Nykyisen tallennuksen (records.json)
+    deactivate record_file
+    Note over record_api: Jos aikataulu on olemassa, niin korvataan vanha uudella
+    Note over record_api: Luodaan uusi aikataulu
+    record_api->>record_file: Kirjoitetaan record_file tiedostoon uusi aikataulu kirjaus.
+
+
 
 ```

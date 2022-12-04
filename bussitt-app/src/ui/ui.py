@@ -149,9 +149,6 @@ class Ui:
 
         return self.answers[inquiry_name]
 
-    def get_answers(self):
-        return self.answers
-
     def ask_home_or_quit(self):
         inquiry_name = "action"
 
@@ -168,3 +165,7 @@ class Ui:
         clear_cl()
 
         return self.answers[inquiry_name]
+
+
+    def get_answers(self):
+        return self.answers
