@@ -1,9 +1,6 @@
 import pandas as pd
-
 from rich.console import Console
 from rich.table import Table, box
-# from rich.style import Style
-# from rich.text import Text
 
 # my modules
 from myutils.myutils import clear_cl, get_time_and_date
@@ -14,29 +11,12 @@ class Display:
         clear_cl()
 
     def construct_table(self, data, style="default"):
-        # Creating the dataframe
         data_frame = pd.DataFrame(data)
-
-        # Printing the information
-
-        # drop column ssn from data_frame
-
-        # # constructing the table title
-        # table_title = timetable_custom_name or "Timetable name goes here"
-        # table_title_style = Style(color="white", bgcolor="purple", bold=True)
-        # title_text = Text(text=table_title, style=table_title_style)
-
-        # # constructing any table labels
-        # table_labels = "test1, test2"
-        # table_labels_style = Style(color="white", bgcolor="yellow")
-        # labels_text = Text(text=table_labels, style=table_labels_style)
-
 
         if style == "simple":
             box_style = box.SIMPLE
         else:
             box_style = box.HEAVY_EDGE
-        
 
         table = Table(padding=(0, 1), box=box_style)
 
@@ -52,7 +32,7 @@ class Display:
 
         return table
 
-    def render_timetable(self, timetable_data, timetable_custom_name=None):
+    def render_timetable(self, timetable_data):
         if timetable_data is None:
             return
 
@@ -79,18 +59,21 @@ class Display:
 
         console = Console()
         console.print(table)
+        print("")
+        print("")
 
     def render_timetable_list(self, timetable_collection):
         data_list = []
 
         for timetable in timetable_collection:
             data_list.append({
-                "Name": timetable["timetable_custom_name"],
-                "Bus stop": timetable["timetable_name"] + " " + timetable["timetable_code"],
+                "Name": timetable["custom_name"],
+                "Bus stop": timetable["name"] + " " + timetable["code"],
             })
 
         table = self.construct_table(data_list)
 
         console = Console()
         console.print(table)
+        print("")
         print("")

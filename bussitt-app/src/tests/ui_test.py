@@ -59,7 +59,7 @@ class TestUi(unittest.TestCase):
     def test_ask_timetable_custom_name(self, mock_inquirer):
 
         # mock timetable custom name
-        mock_inquirer.prompt.return_value = {"timetable_custom_name": "test"}
+        mock_inquirer.prompt.return_value = {"custom_name": "test"}
         self.assertEqual(self.ui.ask_timetable_custom_name(), "test")
 
     @patch("ui.ui.inquirer")

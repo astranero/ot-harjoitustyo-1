@@ -1,1 +1,16 @@
-[]
+[
+    {
+        "id": "HSL:1140106",
+        "name": "Kirjailijanpuisto",
+        "code": "H1318",
+        "gtfsId": "HSL:1140106",
+        "custom_name": "Koti"
+    },
+    {
+        "id": "HSL:1320125",
+        "name": "Konalan puisto",
+        "code": "H1818",
+        "gtfsId": "HSL:1320125",
+        "custom_name": "Vanhemmat"
+    }
+]

@@ -16,7 +16,7 @@ Sovellusta voi käyttää kuka tahansa kuka tahansa.
 ### Aikataulujen katselmointi
 
 - Käyttäjä näkee listan tallennetuista aikatauluista (TEHTY)
-- Käyttäjä voi valita alkuvalikosta aikataulujen katselmoinnin ja valita aikataulun jota katsoa.
+- Käyttäjä voi valita alkuvalikosta aikataulujen katselmoinnin ja valita aikataulun jota katsoa. (TEHTY)
 
 
 ### Uuden aikataulun tallentaminen
@@ -37,7 +37,7 @@ Perusversion jälkeen järjestelmää täydennetään seuraavilla toiminnallisuu
 
 - Bussipysäkin taikataulun hakemista laajennetaan, niin että bussipysäkkejä voi hakea katuosoitteella.
 - Yksittäinen tallennettu aikataulu voidaan avata käynnistämällä sovellus komentorivi argumentin kanssa.
-- Sovellus tulostaa sovelluksen kaikki toiminnot help argumentilla.
+- Sovellus tulostaa sovelluksen kaikki käytössä olevat toiminnot help argumentilla.
 - Sovellus tulostaa tallennettua aikataulua vastaavat komentorivi argumentit.
 - Aikataulu haulla on pelkän pysäkin nimen sijasta tiedot kaikista busseista ja niiden päätepysäkeistä helpottamaan valintaa.
 - Arvioitu kävelyaika pysäkille annetusta osoitteesta.

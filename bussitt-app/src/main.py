@@ -24,6 +24,9 @@ class Main:
         self.user_answers = None
         self.timetable_custom_name = None
 
+        # view properties
+        self.timetable_option = None
+
         # Search properties
         self.search_word = None
         self.search_options = None
@@ -32,23 +35,39 @@ class Main:
 
         # Main loop
         while True:
+            # check if any records exist
+            timetable_list = record_api.get_records_file()
 
             # If any recorded timetables, display them
-            self.display.render_timetable_list(record_api.get_records_file())
+            self.display.render_timetable_list(timetable_list)
 
             # Ask user for action
             self.ask_action()
 
-            if self.action == "add_timetable":
+            if self.action == "view_timetable":
+                self.view_timetable()
+                self.ask_home_or_quit()
+            elif self.action == "add_timetable":
                 self.get_timetables()
                 self.ask_to_save_timetable()
             elif self.action == "manage_timetables":
-                transient_print("Feature not yet available")
+                print("Feature not yet available")
+                print("")
+                print("")
+                self.ask_home_or_quit()
 
     def ask_action(self) -> None:
-        self.action = self.ui.ask_action()
+        has_records = record_api.has_records()
+        self.action = self.ui.ask_action(has_records)
 
         if self.action == "quit":
+            if __name__ == "__main__":
+                sys.exit()
+
+    def ask_home_or_quit(self) -> None:
+        answer = self.ui.ask_home_or_quit()
+
+        if answer == "quit":
             if __name__ == "__main__":
                 sys.exit()
 
@@ -91,9 +110,17 @@ class Main:
     def choose_searh_option(self) -> None:
         self.bus_stop = self.ui.choose_search_option(self.search_options)
 
-    def display_timetable(self) -> None:
-        data = api.fetch_timetable(self.bus_stop)
+    def choose_timetable_options(self) -> None:
+        records = record_api.get_records_file()
+        self.bus_stop = self.ui.choose_timetable_options(records)
+
+    def display_timetable(self, bus_stop) -> None:
+        data = api.fetch_timetable(bus_stop)
         self.display.render_timetable(data)
+
+    def view_timetable(self) -> None:
+        self.choose_timetable_options()
+        self.display_timetable(self.bus_stop)
 
     def get_timetables(self) -> None:
         self.repeat_ask_search_word()
@@ -102,7 +129,7 @@ class Main:
         self.choose_searh_option()
 
         # Display timetable
-        self.display_timetable()
+        self.display_timetable(self.bus_stop)
 
     def get_user_answers(self):
         self.user_answers = self.ui.get_answers()
@@ -112,10 +139,10 @@ class Main:
         self.ask_timetable_custom_name()
 
         data = {
-            "timetable_name": self.user_answers["bus_stop"]["name"],
-            "timetable_code": self.user_answers["bus_stop"]["code"],
-            "timetable_gtfsId": self.user_answers["bus_stop"]["gtfsId"],
-            "timetable_custom_name": self.timetable_custom_name,
+            "name": self.user_answers["bus_stop"]["name"],
+            "code": self.user_answers["bus_stop"]["code"],
+            "gtfsId": self.user_answers["bus_stop"]["gtfsId"],
+            "custom_name": self.timetable_custom_name,
         }
 
         record_api.save_timetable(data)

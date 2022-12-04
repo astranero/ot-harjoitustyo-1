@@ -60,7 +60,7 @@ def boilerplate():
 
 
 def transient_print(message):
-    boilerplate()
+    # boilerplate()
     print(message)
     time.sleep(2)
     clear_cl()

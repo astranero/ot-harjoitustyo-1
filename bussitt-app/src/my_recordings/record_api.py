@@ -22,6 +22,11 @@ def get_records_file():
         return []
 
 
+def has_records():
+    records = get_records_file()
+    return len(records) != 0
+
+
 def schema_exists(schema_id, records_list):
     try:
         return any(item.get("id") == schema_id for item in records_list)
@@ -44,17 +49,17 @@ def add_schema(new_schema, records_list):
 def save_timetable(data):
     records_list = get_records_file()
 
-    schema_id = data["timetable_gtfsId"]
+    schema_id = data["gtfsId"]
 
     if schema_exists(schema_id, records_list):
         records_list = remove_schema(schema_id, records_list)
 
     new_schema = {
         "id": schema_id,
-        "timetable_name": data["timetable_name"],
-        "timetable_code": data["timetable_code"],
-        "timetable_gtfsId": data["timetable_gtfsId"],
-        "timetable_custom_name": data["timetable_custom_name"],
+        "name": data["name"],
+        "code": data["code"],
+        "gtfsId": data["gtfsId"],
+        "custom_name": data["custom_name"],
 
         # next feature
         # "timetable_cl_arg": data["timetable_cl_arg"]

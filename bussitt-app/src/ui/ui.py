@@ -9,7 +9,6 @@ class Ui:
         # Schema
         self.answers = {
             "action": "",
-            "next_action": "",
             "search_word": "",
             "bus_stop": {
                 "name": "",
@@ -17,19 +16,35 @@ class Ui:
             },
         }
 
-    def ask_action(self) -> dict:
+    def ask_action(self, has_records) -> dict:
         inquiry_name = "action"
-        question = [
-            inquirer.List(
-                inquiry_name,
-                message="Your action",
-                choices=[
-                        ('Add new timetable', 'add_timetable'),
-                        ('Manage saved timetables', "manage_timetables"),
-                        ('Quit', 'quit')
-                ],
-            )
-        ]
+        question = []
+
+        if has_records:
+            question = [
+                inquirer.List(
+                    inquiry_name,
+                    message="Your action",
+                    choices=[
+                            ('View a timetable', 'view_timetable'),
+                            ('Add new timetable', 'add_timetable'),
+                            ('Manage saved timetables', "manage_timetables"),
+                            ('Quit', 'quit')
+                    ],
+                )
+            ]
+        else:
+            question = [
+                inquirer.List(
+                    inquiry_name,
+                    message="Your action",
+                    choices=[
+                            ('Add new timetable', 'add_timetable'),
+                            ('Manage saved timetables', "manage_timetables"),
+                            ('Quit', 'quit')
+                    ],
+                )
+            ]
 
         self.answers[inquiry_name] = inquirer.prompt(question)[inquiry_name]
         clear_cl()
@@ -37,8 +52,6 @@ class Ui:
         return self.answers[inquiry_name]
 
     def ask_to_save_timetable(self) -> dict:
-        print("")
-        print("")
         inquiry_name = "save_timetable"
         question = [inquirer.List(
             inquiry_name,
@@ -60,6 +73,34 @@ class Ui:
         question = [inquirer.Text(
             inquiry_name,
             message="Search timetable by stop name"
+        )]
+
+        self.answers[inquiry_name] = inquirer.prompt(question)[inquiry_name]
+        clear_cl()
+
+        return self.answers[inquiry_name]
+
+    def choose_timetable_options(self, records):
+        if not records:
+            error()
+
+        inquiry_name = "recorded_timetables"
+        choices = []
+
+        for record in records:
+            choice = (
+                f"{record['custom_name']}",
+                {
+                    "name": record['name'],
+                    "code": record['code'],
+                    "gtfsId": record["gtfsId"]}
+            )
+            choices.append(choice)
+
+        question = [inquirer.List(
+            inquiry_name,
+            # message="Choose timetable",
+            choices=choices
         )]
 
         self.answers[inquiry_name] = inquirer.prompt(question)[inquiry_name]
@@ -97,7 +138,7 @@ class Ui:
 
     def ask_timetable_custom_name(self):
 
-        inquiry_name = "timetable_custom_name"
+        inquiry_name = "custom_name"
         question = [inquirer.Text(
             inquiry_name,
             message="Give your timetable a name (or skip)"
@@ -110,3 +151,20 @@ class Ui:
 
     def get_answers(self):
         return self.answers
+
+    def ask_home_or_quit(self):
+        inquiry_name = "action"
+
+        question = [inquirer.List(
+            inquiry_name,
+            message="What next?",
+            choices=[
+                ("Home", None),
+                ("Quit", "quit")
+            ]
+        )]
+
+        self.answers[inquiry_name] = inquirer.prompt(question)[inquiry_name]
+        clear_cl()
+
+        return self.answers[inquiry_name]
