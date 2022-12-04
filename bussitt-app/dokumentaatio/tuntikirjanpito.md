@@ -10,5 +10,6 @@
 | 20.11 | 8 | Käyttöliittymän pytest testaus ja myutils moduulin testaus |
 | 24.11 | 7 | Uusia testejä luotu. Uusia ominaisuuksia kuten aikataulun tallentaminen |
 | 29.11 | 4 | Tallennetut akataulut näytetään kotivalikossa, Koodin refaktorointia ja dokumentointia |
+| 4.12 | 4 | Tallennettu aikataulu voidaan valita katseltavaksi. Yksi perustoiminnallisuuksista tehty. |
 
-Tunnit yhteensä: 36h
+Tunnit yhteensä: 40h

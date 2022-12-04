@@ -17,4 +17,7 @@
 ## Viikko 4
 - Käyttäjä näkee alkuvalikosta tallennetut bussiaikataulut
 - Käyttäjä voi tallentaa aikataulun pysyvästi lokaalisti
-- Käyttäjä voi käynnistää sovelluksen help argumentilla
+
+## Viikko 5
+- Käyttäjä voi valita tallennetun bussi-aikataulun katseltavaksi
+
