@@ -78,7 +78,8 @@ Näkymät voivat olla näkyvissä yksi kerrallaan tai samanaikaisesti. Käyttöl
 ## Sovelluslogiikka
 --
 ## Tietojen pysyväistallennus
---
+Tiedot pysyväistallennetaan sovelluksen mukana tulevaan `records.json` tiedostoon. Tiedosto on sijoitettu `my_recordings` kansioon. Tallennuslogiikasta vastaa samassa kansiossa sijaitseva `records_api.py`. `records_api.py` on käytössä ainoastaan `Main` luokasta.
+
 ## Päätoiminnallisuudet
 ### Alkuvalikko
 Kun käyttäjä käynnistää sovelluksen, etenee sovelluksen kontrolli seuraavasti:
@@ -87,11 +88,19 @@ Kun käyttäjä käynnistää sovelluksen, etenee sovelluksen kontrolli seuraava
 sequenceDiagram
     participant Main
     participant Ui
+    participant Display
+    participant record_api
     actor Käyttäjä
     
+    Note over Main: Sovellus tarkistaa käyttäjän komentorivi argumentit
     Note over Main: luo ui-olio
     Note over Main: luo display-olio
+
     Main->>Main: start()
+    Note over Main: Hakee tallennetut aikataulut
+    Main->>record_api: get_records_file()
+    Note over Main: Näyttää olemassaolevat aikataulut
+    Main->>Display: render_timetable_list()
     Main->>Ui: ask_action()
     Ui->>Käyttäjä: Pyytää käyttäjältä toimintoa
 ```
@@ -154,7 +163,7 @@ sequenceDiagram
     participant Ui
     participant Main
     participant record_api
-    participant record_file
+    participant records.json
     
     Ui->>Käyttäjä: Kysyy käyttäjältä tallenetaanko aikataulu
     activate Käyttäjä
@@ -176,13 +185,13 @@ sequenceDiagram
     deactivate Ui
     Note over Main: Luodaan tallennusta varten data objekti 
     Main->>record_api: save_timetable(data)
-    record_api->>record_file: get_records_file()
-    activate record_file
-    record_file-->>record_api: Nykyisen tallennuksen (records.json)
-    deactivate record_file
+    record_api->>records.json: get_records_file()
+    activate records.json
+    records.json-->>record_api: Nykyinen tallennuksen
+    deactivate records.json
     Note over record_api: Jos aikataulu on olemassa, niin korvataan vanha uudella
     Note over record_api: Luodaan uusi aikataulu
-    record_api->>record_file: Kirjoitetaan record_file tiedostoon uusi aikataulu kirjaus.
+    record_api->>records.json: Kirjoitetaan records.json tiedostoon uusi aikataulu kirjaus.
 
 
 
