@@ -99,7 +99,10 @@ sequenceDiagram
     Main->>Main: start()
     Note over Main: Hakee tallennetut aikataulut
     Main->>record_api: get_records_file()
-    Note over Main: Näyttää olemassaolevat aikataulut
+    activate record_api
+    record_api-->>Main: Tallennetut aikataulut
+    deactivate record_api
+    Note over Main: Näyttää tallennetut aikataulut
     Main->>Display: render_timetable_list()
     Main->>Ui: ask_action()
     Ui->>Käyttäjä: Pyytää käyttäjältä toimintoa
