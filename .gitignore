@@ -2,4 +2,4 @@
 __pycache__
 htmlcov
 .coverage
-my_recordings/records.json
+src/my_recordings/records.json
