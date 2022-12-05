@@ -12,7 +12,6 @@ class TestUi(unittest.TestCase):
     def test_init(self):
         schema = {
             "action": "",
-            "next_action": "",
             "search_word": "",
             "bus_stop": {
                 "name": "",
@@ -23,18 +22,22 @@ class TestUi(unittest.TestCase):
 
     @patch("ui.ui.inquirer")
     def test_ask_action(self, mock_inquirer):
+        
+        # mock view timetable option
+        mock_inquirer.prompt.return_value = {"action": "view_timetable"}
+        self.assertEqual(self.ui.ask_action(has_records=True), "view_timetable")
 
         # mock add timetable option
         mock_inquirer.prompt.return_value = {"action": "add_timetable"}
-        self.assertEqual(self.ui.ask_action(), "add_timetable")
+        self.assertEqual(self.ui.ask_action(has_records=True), "add_timetable")
 
         # mock manage timetable option
         mock_inquirer.prompt.return_value = {"action": "manage_timetables"}
-        self.assertEqual(self.ui.ask_action(), "manage_timetables")
+        self.assertEqual(self.ui.ask_action(has_records=True), "manage_timetables")
 
         # mock quit option
         mock_inquirer.prompt.return_value = {"action": "quit"}
-        self.assertEqual(self.ui.ask_action(), "quit")
+        self.assertEqual(self.ui.ask_action(has_records=True), "quit")
 
     @patch("ui.ui.inquirer")
     def test_ask_to_save_timetable(self, mock_inquirer):

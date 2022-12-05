@@ -9,7 +9,6 @@ class TestMain(unittest.TestCase):
         self.main = Main()
 
     # def ask_action
-
     @patch("main.Ui.ask_action")
     def test_ask_action(self, mock):
         mock.return_value = "add_timetables"
@@ -22,16 +21,15 @@ class TestMain(unittest.TestCase):
         self.main.ask_action()
         self.assertEqual(self.main.action, "quit")
 
-    # def get_user_answers
-
+    # def get_timetable_info
     @patch("main.Ui.get_answers")
-    def test_get_user_answers(self, mock):
+    def test_get_timetable_info(self, mock):
         schema = {
             "test": "test"
         }
 
         mock.return_value = schema
-        self.main.get_user_answers()
+        self.main.get_timetable_info()
         self.assertEqual(self.main.user_answers, schema)
 
     # def ask_to_save_timetable

@@ -17,13 +17,38 @@ Sovelluksen toiminta on testattu Python-versiolla 3.8. Etenkin vanhempien Python
 
 ## Komentorivitoiminnot
 
-### Sovelluksen suorittaminen
+### Sovelluksen asennus ja käynnistys
 
-Sovelluksen pystyy suorittamaan komennolla
+Lataa sovellus kohdasta releases ja pura tiedosto haluamaasi hakemistoon.
 
+Mene hakemistoon terminaalissa.
+
+Varmista että poetry on asennettu suorittamalla komento
+```
+poetry --version
+```
+
+Varmista että python3 versio on korkeampi kuin 3.8 komennolla
+```
+python3 --version
+```
+
+Mene Bussitt-app hakemiston sisään 
+```
+cd Bussitt-app
+```
+
+Suorita 
+```
+poetry install
+```
+
+Asennuksen jälkeen ohjelman voi käynnistää komennolla 
 ```
 poetry run invoke start
 ```
+
+
 
 ### Sovelluksen testaus
 
