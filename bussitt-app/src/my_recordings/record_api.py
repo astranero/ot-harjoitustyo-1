@@ -69,3 +69,22 @@ def save_timetable(data):
 
     with open(get_path(), mode="w", encoding="utf-8") as outfile:
         json.dump(records_list, outfile, indent=4)
+
+
+def delete_timetable(data):
+    records_list = get_records_file()
+
+    schema_id = data["gtfsId"]
+
+    if schema_exists(schema_id, records_list):
+        records_list = remove_schema(schema_id, records_list)
+
+        with open(get_path(), mode="w", encoding="utf-8") as outfile:
+            json.dump(records_list, outfile, indent=4)
+
+        return "success"
+    else:
+        return "failed"
+
+
+    

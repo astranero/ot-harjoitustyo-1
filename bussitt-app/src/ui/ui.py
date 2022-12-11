@@ -136,15 +136,33 @@ class Ui:
 
         return self.answers[inquiry_name]
 
+    def choose_management_operation(self):
+        inquiry_name = "management_operation"
+
+        question = [inquirer.List(
+            inquiry_name,
+            message="What would you like to do?",
+            choices=[
+                ("Delete a timetable", "delete_timetable"),
+                ("Rename a timetable", "rename_timetable")
+            ]
+        )]
+
+        self.answers[inquiry_name] = inquirer.prompt(question)[inquiry_name]
+        clear_cl()
+
+        return self.answers[inquiry_name]
+
     def ask_timetable_custom_name(self):
 
         inquiry_name = "custom_name"
         question = [inquirer.Text(
             inquiry_name,
-            message="Give your timetable a name (or skip)"
+            message="Name your timetable"
         )]
 
-        self.answers[inquiry_name] = inquirer.prompt(question)[inquiry_name]
+        name = inquirer.prompt(question)[inquiry_name]
+        self.answers[inquiry_name] = name if name or name != "" else "No name"
         clear_cl()
 
         return self.answers[inquiry_name]
