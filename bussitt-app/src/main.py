@@ -1,7 +1,6 @@
 import sys
 
 # my modules
-from config import args_handler
 from myutils.myutils import error, transient_print
 from ui.ui import Ui
 from ui.display import Display
@@ -11,9 +10,6 @@ from my_recordings import record_api
 
 class Main:
     def __init__(self) -> None:
-        # check all init command-line arguments
-        args_handler.check_arguments()
-
         # Class instantiations
         self.ui = Ui()
         self.display = Display()

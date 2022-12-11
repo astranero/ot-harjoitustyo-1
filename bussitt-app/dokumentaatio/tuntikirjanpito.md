@@ -11,5 +11,7 @@
 | 24.11 | 7 | Uusia testejä luotu. Uusia ominaisuuksia kuten aikataulun tallentaminen |
 | 29.11 | 4 | Tallennetut akataulut näytetään kotivalikossa, Koodin refaktorointia ja dokumentointia |
 | 4.12 | 4 | Tallennettu aikataulu voidaan valita katseltavaksi. Yksi perustoiminnallisuuksista tehty. |
+| 11.12 | 3 | Kaikki perusominaisuudet tehty. Viimeinen ominaisuus hallinnoida tallennettuja aikatauluja on toteutettu |
 
-Tunnit yhteensä: 40h
+
+Tunnit yhteensä: 43h

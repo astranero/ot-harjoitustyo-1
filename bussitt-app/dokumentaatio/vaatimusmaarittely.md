@@ -27,18 +27,16 @@ Sovellusta voi käyttää kuka tahansa kuka tahansa.
 
 ### Aikataulujen hallinnointi
 
-- Käyttäjä voi uudelleen nimetä aikatauluja
-- Käyttäjä voi poistaa tallennettuja aikatauluja
+- Käyttäjä voi uudelleen nimetä aikatauluja (TEHTY)
+- Käyttäjä voi poistaa tallennettuja aikatauluja (TEHTY)
 
 
 ## Jatkokehitys
 
-Perusversion jälkeen järjestelmää täydennetään seuraavilla toiminnallisuuksilla (järjestyksessä):
+Perusversion jälkeen järjestelmää voisi täydentää seuraavilla toiminnallisuuksilla:
 
 - Bussipysäkin taikataulun hakemista laajennetaan, niin että bussipysäkkejä voi hakea katuosoitteella.
 - Yksittäinen tallennettu aikataulu voidaan avata käynnistämällä sovellus komentorivi argumentin kanssa.
-- Sovellus tulostaa sovelluksen kaikki käytössä olevat toiminnot help argumentilla.
-- Sovellus tulostaa tallennettua aikataulua vastaavat komentorivi argumentit.
 - Aikataulu haulla on pelkän pysäkin nimen sijasta tiedot kaikista busseista ja niiden päätepysäkeistä helpottamaan valintaa.
 - Arvioitu kävelyaika pysäkille annetusta osoitteesta.
 - Tekstikäyttöliittmyän parantelu
