@@ -60,9 +60,12 @@ class Display:
         console = Console()
         console.print(table)
         print("")
-        print("")
+
 
     def render_timetable_list(self, timetable_collection):
+        if len(timetable_collection) == 0:
+            return 
+        
         data_list = []
 
         for timetable in timetable_collection:
@@ -75,5 +78,4 @@ class Display:
 
         console = Console()
         console.print(table)
-        print("")
         print("")

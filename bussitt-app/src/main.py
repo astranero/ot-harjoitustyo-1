@@ -1,7 +1,7 @@
 import sys
 
 # my modules
-from myutils.myutils import error, transient_print
+from myutils.myutils import error, transient_print, boilerplate
 from ui.ui import Ui
 from ui.display import Display
 from api import api
@@ -27,6 +27,9 @@ class Main:
 
         # Main loop
         while True:
+            # adds a boilerplate text everytime homeview is rendered
+            boilerplate()
+
             # check if any records exist
             timetable_list = record_api.get_records_file()
 
