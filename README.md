@@ -8,8 +8,11 @@ Sovellus käyttää HSL:n tarjoamaa rajapintaa Helsingin julkisesta liikenteest�
 Sovelluksen toiminta on testattu Python-versiolla 3.8. Etenkin vanhempien Python-versioiden kanssa saattaa ilmentyä ongelmia.
 
 ## Julkaistu versio
-- [Release](https://github.com/sutigit/ot-harjoitustyo/releases/tag/viikko5)
+- [Release](https://github.com/sutigit/ot-harjoitustyo/releases)
 
+
+## Käyttöohjeet
+- [Käyttöohje]()
 
 ## Dokumentaatio
 
@@ -17,7 +20,7 @@ Sovelluksen toiminta on testattu Python-versiolla 3.8. Etenkin vanhempien Python
 - [Tuntikirjanpito](https://github.com/sutigit/ot-harjoitustyo/blob/master/bussitt-app/dokumentaatio/tuntikirjanpito.md)
 - [Arkkitehtuuri](https://github.com/sutigit/ot-harjoitustyo/blob/master/bussitt-app/dokumentaatio/arkkitehtuuri.md)
 - [Changelog](https://github.com/sutigit/ot-harjoitustyo/blob/master/bussitt-app/dokumentaatio/changelog.md)
-- [Release](https://github.com/sutigit/ot-harjoitustyo/releases/tag/viikko5)
+- [Release](https://github.com/sutigit/ot-harjoitustyo/releases)
 
 ## Komentorivitoiminnot
 
