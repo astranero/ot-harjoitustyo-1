@@ -12,7 +12,7 @@ Sovelluksen toiminta on testattu Python-versiolla 3.8. Etenkin vanhempien Python
 
 
 ## Käyttöohjeet
-- [Käyttöohje]()
+- [Käyttöohje](https://github.com/sutigit/ot-harjoitustyo/blob/master/bussitt-app/dokumentaatio/kayttoohjeet.md)
 
 ## Dokumentaatio
 
