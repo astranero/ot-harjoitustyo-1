@@ -1,16 +1,28 @@
 import json
 
 
+"""
+This modules has the single responsibility of provifing API functions to save and edit records.json.
+records.json file is not used in any other module.
+"""
 
 def get_path():
     return "src/my_recordings/records.json"
 
 
 def is_empty(records_list):
+    """
+    Checks wether the records_list is empty and returns a boolean
+    """
+
     return len(records_list) == 0 or any(item.get("id") for item in records_list)
 
 
 def get_records_file():
+    """
+    Opens and returns the saved timetables file. If no file is found, returns an empty list
+    """
+
     try:
         with open(get_path(), "r", encoding="utf-8") as openfile:
             return json.load(openfile)
@@ -23,11 +35,19 @@ def get_records_file():
 
 
 def has_records():
+    """
+    Utility function for informing if saved timetables file is empty or not
+    """
+
     records = get_records_file()
     return len(records) != 0
 
 
 def schema_exists(schema_id, records_list):
+    """
+    Utility function for checking if a certain record with schema_id already exists
+    """
+    
     try:
         return any(item.get("id") == schema_id for item in records_list)
     except LookupError:

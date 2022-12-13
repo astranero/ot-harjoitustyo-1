@@ -9,6 +9,11 @@ from my_recordings import record_api
 
 
 class Main:
+    """
+    Main class works as the antry point for the applications logic. 
+    It is the most important class all the other classes adhere to.
+    """
+
     def __init__(self) -> None:
         # Class instantiations
         self.ui = Ui()
@@ -24,6 +29,9 @@ class Main:
         self.search_options = None
 
     def start(self) -> None:
+        """
+        Start function works as the main loop of the application and starting point of the Main class.
+        """
 
         # Main loop
         while True:
@@ -59,6 +67,10 @@ class Main:
                     self.rename_timetable()
 
     def ask_action(self) -> None:
+        """
+        Gets the user input for the available actions in app
+        """
+
         has_records = record_api.has_records()
         self.action = self.ui.ask_action(has_records)
 
@@ -67,6 +79,10 @@ class Main:
                 sys.exit()
 
     def ask_home_or_quit(self) -> None:
+        """
+        Asks the user to exit the app or to return to the start of the main loop
+        """
+
         answer = self.ui.ask_home_or_quit()
 
         if answer == "quit":
@@ -83,6 +99,10 @@ class Main:
                 sys.exit()
 
     def repeat_ask_search_word(self) -> None:
+        """
+        Repeats the user input call untill a valid search word has been given
+        """
+
         while True:
 
             # Ask for a search word until there are search options
@@ -103,7 +123,11 @@ class Main:
     def ask_search_word(self):
         self.search_word = self.ui.ask_search_word()
 
-    def ask_timetable_custom_name(self):
+    def ask_timetable_custom_name(self) -> str:
+        """
+        Asks user for a custom name for a timetable and returns a string to be used. 
+        """
+
         custom_name = self.ui.ask_timetable_custom_name()
         return custom_name
 
@@ -114,6 +138,10 @@ class Main:
         self.timetable = self.ui.choose_search_option(self.search_options)
 
     def choose_timetable_options(self) -> None:
+        """
+        Retrieves the saved timetabled and prompts the user to choose between saved timetables
+        """
+
         records = record_api.get_records_file()
         self.timetable = self.ui.choose_timetable_options(records)
 
@@ -122,6 +150,10 @@ class Main:
         self.display.render_timetable(data)
 
     def view_timetable(self) -> None:
+        """
+        Display the timetable chosen by the user when given the options
+        """
+
         self.choose_timetable_options()
         self.display_timetable(self.timetable)
 
@@ -151,6 +183,10 @@ class Main:
         record_api.save_timetable(data)
 
     def choose_management_operation(self) -> None:
+        """
+        Asks the user wether to rename or delete a timetable
+        """
+
         self.action = self.ui.choose_management_operation()
 
     def delete_timetable(self) -> None:

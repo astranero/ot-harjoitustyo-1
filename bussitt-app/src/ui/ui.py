@@ -5,6 +5,10 @@ from myutils.myutils import clear_cl, error
 
 
 class Ui:
+    """
+    This Class has the single responsibility of communicating with user.
+    """
+
     def __init__(self) -> None:
         # Schema
         self.answers = {

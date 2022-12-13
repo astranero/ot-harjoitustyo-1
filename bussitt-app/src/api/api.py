@@ -6,10 +6,19 @@ import requests
 # my modules
 from myutils.myutils import error
 
+
+"""
+This module has the single responsibilty of providing utility functions for sending API requests to the URL mentioned below.
+"""
+
 URL = "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql"
 
 
 def fetch_timetable(bus_stop) -> dict:
+    """
+    Sends a API request for a particular timetable
+    """
+
     if not bus_stop:
         error()
 
@@ -53,6 +62,10 @@ def fetch_timetable(bus_stop) -> dict:
 
 
 def fetch_search_options(search_word):
+    """
+    Sends an API request for different timetable options depending on the search_word
+    """
+
     if not search_word:
         error()
 
